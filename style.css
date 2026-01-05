@@ -195,3 +195,173 @@ footer { background: #1a1a1a; color: #666; text-align: center; padding: 40px; fo
     font-family: sans-serif;
     border-radius: 4px; /* Slightly rounded for a modern look */
 }
+
+/* Section Subtitle */
+.section-subtitle {
+    text-align: center;
+    margin-top: -30px;
+    margin-bottom: 50px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Grid Layout */
+.horse-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Horse Card Styles */
+.horse-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    border-bottom: 4px solid #c5a059;
+}
+
+.horse-card:hover {
+    transform: translateY(-10px);
+}
+
+.horse-image {
+    position: relative;
+    height: 200px;
+}
+
+.horse-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rank-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #c5a059;
+    color: #1a1a1a;
+    padding: 5px 12px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.horse-info {
+    padding: 20px;
+}
+
+.horse-info h3 {
+    margin-bottom: 5px;
+    color: #1a1a1a;
+    font-size: 1.4rem;
+}
+
+.owner {
+    font-size: 0.9rem;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.stats {
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.status-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #8b0000;
+    letter-spacing: 1px;
+}
+
+/* Filter Button Styling */
+.filter-container {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 2px solid #c5a059;
+    color: #1a1a1a;
+    padding: 10px 25px;
+    margin: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+    border-radius: 4px;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: #c5a059;
+    color: #fff;
+}
+
+/* Category Tag on Image */
+.category-tag {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0,0,0,0.7);
+    color: #c5a059;
+    padding: 4px 10px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Logic for Hiding/Showing */
+.filter-item {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+.hide {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+
+/* Hero Video Styling */
+.hero {
+    position: relative;
+    overflow: hidden; /* Keeps video from spilling out */
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Puts video behind the text */
+    object-fit: cover;
+}
+
+/* Card Video Styling */
+.horse-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    background: #000; /* Fallback color */
+}
+
+.card-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures video fills the card area */
+}
