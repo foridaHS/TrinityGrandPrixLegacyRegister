@@ -152,3 +152,46 @@ nav ul li a {
 .main-event-row { background: #fff9eb; border-left: 5px solid #c5a059; }
 
 footer { background: #1a1a1a; color: #666; text-align: center; padding: 40px; font-size: 0.8rem; }
+
+/* 1. Define the Fade-In & Slide-Up Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px); /* Starts 30px lower */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);    /* Ends at its natural position */
+    }
+}
+
+/* 2. Position the buttons lower */
+.hero-btns { 
+    margin-top: 80px; /* Increased from 30px to push them lower */
+    
+    /* Apply the animation */
+    animation: fadeInUp 1.5s ease-out forwards; 
+    
+    /* Ensure they stay invisible until the animation starts */
+    opacity: 0; 
+}
+
+/* Optional: Slight delay for the text above to make the buttons feel "later" */
+.hero-description {
+    animation: fadeInUp 1.2s ease-out forwards;
+    opacity: 0;
+    animation-delay: 0.3s;
+}
+
+/* Keeping button styles from before with a slight refinement */
+.cta-button {
+    padding: 15px 40px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin: 10px;
+    transition: 0.4s;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    border-radius: 4px; /* Slightly rounded for a modern look */
+}
