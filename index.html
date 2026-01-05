@@ -6,6 +6,9 @@
     <title>Lavitar Cup Legend Chronicle | Lavitar Racing Club</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
+
+
 <body>
 
     <header>
@@ -19,19 +22,21 @@
         </nav>
     </header>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <p class="club-name">LAVITAR RACING CLUB PRESENTS</p>
-            <h1>Lavitar Cup<br><span class="subtitle">Legend Chronicle</span></h1>
-            
-            <p class="hero-description">Where legends are born and history is written on the turf.</p>
-            
-            <div class="hero-btns">
-                <a href="YOUR_GOOGLE_FORM_URL_HERE" target="_blank" class="cta-button gold">Participate Now</a>
-                <a href="#schedule" class="cta-button outline">View Schedule</a>
+        <section id="home" class="hero">
+            <video autoplay muted loop playsinline class="hero-video">
+                <source src="LavitarWebVideo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="hero-content">
+                <p class="club-name">LAVITAR RACING CLUB PRESENTS</p>
+                <h1>Lavitar Cup<br><span class="subtitle">Legend Chronicle</span></h1>
+                <p class="hero-description">Where legends are born and history is written on the turf.</p>
+                <div class="hero-btns">
+                    <a href="YOUR_GOOGLE_FORM_URL_HERE" target="_blank" class="cta-button gold">Participate Now</a>
+                    <a href="#schedule" class="cta-button outline">View Schedule</a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <section id="participate" class="participation-bar">
         <div class="container">
@@ -75,9 +80,90 @@
         </table>
     </section>
 
+            <section id="stable" class="container">
+        <h2 class="section-title">The Contenders</h2>
+        
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterSelection('all')">All Classes</button>
+            <button class="filter-btn" onclick="filterSelection('miles')">Miles (1600m)</button>
+            <button class="filter-btn" onclick="filterSelection('medium')">Medium (2000m-2400m)</button>
+            <button class="filter-btn" onclick="filterSelection('long')">Long (3000m+)</button>
+        </div>
+        
+        <div class="horse-grid" id="horseGrid">
+            <div class="horse-card filter-item miles">
+                <div class="horse-image">
+                    <img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&q=80&w=400" alt="Horse">
+                    <span class="category-tag">Miles</span>
+                </div>
+                <div class="horse-info">
+                    <h3>Sprint Legend</h3>
+                    <p class="owner">Stable: Lavitar Elite</p>
+                    <span class="status-tag">Confirmed</span>
+                </div>
+            </div>
+
+            <div class="horse-card filter-item medium">
+                <div class="horse-image">
+                    <img src="https://images.unsplash.com/photo-1598974357801-cbca100e65d3?auto=format&fit=crop&q=80&w=400" alt="Horse">
+                    <span class="category-tag">Medium</span>
+                </div>
+                <div class="horse-info">
+                    <h3>Midnight Chronicle</h3>
+                    <p class="owner">Stable: Royal Turf</p>
+                    <span class="status-tag">Top Seed</span>
+                </div>
+            </div>
+
+            <div class="horse-card filter-item long">
+                <div class="horse-image">
+                    <img src="https://images.unsplash.com/photo-1534418571333-6625890e87d0?auto=format&fit=crop&q=80&w=400" alt="Horse">
+                    <span class="category-tag">Long</span>
+                </div>
+                <div class="horse-info">
+                    <h3>Endurance King</h3>
+                    <p class="owner">Stable: North Star</p>
+                    <span class="status-tag">Confirmed</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <p>&copy; 2026 Lavitar Racing Club. All rights reserved.</p>
     </footer>
 
+
+
+
+    <script>
+    function filterSelection(category) {
+        const items = document.getElementsByClassName('filter-item');
+        const buttons = document.getElementsByClassName('filter-btn');
+        
+        // Update active button state
+        for (let btn of buttons) {
+            btn.classList.remove('active');
+            if (btn.innerText.toLowerCase().includes(category)) {
+                btn.classList.add('active');
+            } else if (category === 'all' && btn.innerText.includes('All')) {
+                btn.classList.add('active');
+            }
+        }
+
+        // Filter cards
+        for (let item of items) {
+            if (category === 'all') {
+                item.classList.remove('hide');
+            } else {
+                if (item.classList.contains(category)) {
+                    item.classList.remove('hide');
+                } else {
+                    item.classList.add('hide');
+                }
+            }
+        }
+    }
+</script>
 </body>
 </html>
