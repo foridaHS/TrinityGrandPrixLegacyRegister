@@ -63,41 +63,65 @@
         <table class="schedule-table" id="raceTable">
             <thead>
                 <tr>
-                    <th>Time</th>
-                    <th>Race Event</th>
+                    <th>Date</th>
+                    <th>Racecourse</th>
                     <th>Distance</th>
                     <th>Category</th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="race-row miles">
-                    <td>13:00</td>
-                    <td>Lavitar Junior Sprint</td>
-                    <td>1200m</td>
+                <tr class="race-row miles main-event-row">
+                    <td>10/1/2026</td>
+                    <td><strong> Mile Cup</strong></td>
+                    <td>1600m</td>
                     <td><span class="badge mile-bg">Mile</span></td>
                 </tr>
                 <tr class="race-row miles">
-                    <td>14:30</td>
-                    <td>The Golden Mile</td>
+                    <td>10/1/2026</td>
+                    <td>Yasuda Kinen</td>
+                    <td>1600m</td>
+                    <td><span class="badge mile-bg">Mile</span></td>
+                </tr>
+                <tr class="race-row miles">
+                    <td>10/1/2026</td>
+                    <td>Victoria Mile</td>
                     <td>1600m</td>
                     <td><span class="badge mile-bg">Mile</span></td>
                 </tr>
                 <tr class="race-row medium main-event-row">
-                    <td>17:30</td>
-                    <td><strong>Lavitar Cup Legend Chronicle</strong></td>
-                    <td>2400m</td>
-                    <td><span class="badge med-bg">Medium</span></td>
-                </tr>
-                <tr class="race-row medium">
-                    <td>18:45</td>
-                    <td>Classic Turf Stakes</td>
+                    <td>10/1/2026</td>
+                    <td><strong>Osaka Hai</strong></td>
                     <td>2000m</td>
                     <td><span class="badge med-bg">Medium</span></td>
                 </tr>
+                <tr class="race-row medium">
+                    <td>10/1/2026</td>
+                    <td>Queen Elizabeth II Cup</td>
+                    <td>2200m</td>
+                    <td><span class="badge med-bg">Medium</span></td>
+                </tr>
+                <tr class="race-row medium">
+                    <td>10/1/2026</td>
+                    <td>Japan Cup</td>
+                    <td>2400m</td>
+                    <td><span class="badge med-bg">Medium</span></td>
+                </tr>
+                <tr class="race-row long main-event-row">
+                    <td>10/1/2026</td>
+                    <td><strong>Arima Kinen</strong></td>
+                    <td>2500m</td>
+                    <td><span class="badge long-bg">Long</span></td>
+                </tr>
                 <tr class="race-row long">
-                    <td>19:30</td>
-                    <td>The Marathon Shield</td>
+                    <td>10/1/2026</td>
+                    <td>Kikuka Sho</td>
                     <td>3200m</td>
+                    <td><span class="badge long-bg">Long</span></td>
+                </tr>
+                <tr class="race-row long">
+                    <td>10/1/2026</td>
+                    <td>Tenno Sho Spring</td>
+                    <td>3600m</td>
                     <td><span class="badge long-bg">Long</span></td>
                 </tr>
             </tbody>
@@ -114,8 +138,21 @@
             <button class="filter-btn" onclick="filterSelection('long')">Long (3000m+)</button>
         </div>
 
-        <div class="horse-grid">
-            <div class="horse-card-collapsible filter-item miles">
+        <div class="trainer-group filter-item medium">
+    <div class="trainer-header" onclick="toggleTrainerGroup(this)">
+        <div class="trainer-info">
+            <span class="trainer-tag">Lavitar Club</span>
+            <h2 class="trainer-name">Deltaroot</h2>
+        </div>
+        <div class="trainer-roster-preview">
+            <span>Special Week</span> • <span>Silence Suzuka</span> • <span>Air Groove</span>
+        </div>
+        <div class="expand-icon">▼</div>
+    </div>
+
+    <div class="trainer-roster-content">
+                    <div class="horse-grid">
+            <div class="horse-card-collapsible filter-item medium">
                 <div class="card-content">
                     <div class="horse-portrait">
                         <img src="icon_special_week.png"
@@ -123,9 +160,9 @@
                     </div>
 
                     <div class="basic-info">
-                        <h3>Midnight Thunder</h3>
-                        <p class="owner-name">Trained by: <span>Lavitar Racing Club</span></p> <button
-                            class="toggle-stats-btn" onclick="toggleStats(this)">Show Stats</button>
+                        <h3>Special Week</h3>
+                        <p class="owner-name">Trained by: <span>Deltaroot</span></p> 
+                        <button class="toggle-stats-btn" onclick="toggleStats(this)">Show Stats</button>
                     </div>
 
                     <div class="stats-collapsible">
@@ -134,24 +171,24 @@
                                 <div class="stat-label-container">
                                     <span class="stat-name">Speed</span>
                                     <div class="stat-values">
-                                        <span class="current-val" data-target="1100">0</span>
+                                        <span class="current-val" data-target="1200">1200</span>
                                         <span class="max-val">/ 1200</span>
                                     </div>
                                 </div>
                                 <div class="stat-bar-bg">
-                                    <div class="bar-fill gold-gradient" data-value="1100"></div>
+                                    <div class="bar-fill gold-gradient" data-value="1200"></div>
                                 </div>
                             </div>
                             <div class="stat-row">
                                 <div class="stat-label-container">
                                     <span class="stat-name">Stamina</span>
                                     <div class="stat-values">
-                                        <span class="current-val" data-target="1100">0</span>
+                                        <span class="current-val" data-target="865">865</span>
                                         <span class="max-val">/ 1200</span>
                                     </div>
                                 </div>
                                 <div class="stat-bar-bg">
-                                    <div class="bar-fill gold-gradient" data-value="1100"></div>
+                                    <div class="bar-fill gold-gradient" data-value="865"></div>
                                 </div>
                             </div>
 
@@ -159,12 +196,12 @@
                                 <div class="stat-label-container">
                                     <span class="stat-name">Power</span>
                                     <div class="stat-values">
-                                        <span class="current-val" data-target="1100">0</span>
+                                        <span class="current-val" data-target="1100">834</span>
                                         <span class="max-val">/ 1200</span>
                                     </div>
                                 </div>
                                 <div class="stat-bar-bg">
-                                    <div class="bar-fill gold-gradient" data-value="1100"></div>
+                                    <div class="bar-fill gold-gradient" data-value="834"></div>
                                 </div>
                             </div>
 
@@ -172,12 +209,12 @@
                                 <div class="stat-label-container">
                                     <span class="stat-name">Gut</span>
                                     <div class="stat-values">
-                                        <span class="current-val" data-target="1100">0</span>
+                                        <span class="current-val" data-target="421">0</span>
                                         <span class="max-val">/ 1200</span>
                                     </div>
                                 </div>
                                 <div class="stat-bar-bg">
-                                    <div class="bar-fill gold-gradient" data-value="1100"></div>
+                                    <div class="bar-fill gold-gradient" data-value="421"></div>
                                 </div>
                             </div>
 
@@ -185,12 +222,12 @@
                                 <div class="stat-label-container">
                                     <span class="stat-name">Wit</span>
                                     <div class="stat-values">
-                                        <span class="current-val" data-target="1100">0</span>
+                                        <span class="current-val" data-target="326">0</span>
                                         <span class="max-val">/ 1200</span>
                                     </div>
                                 </div>
                                 <div class="stat-bar-bg">
-                                    <div class="bar-fill gold-gradient" data-value="1100"></div>
+                                    <div class="bar-fill gold-gradient" data-value="326"></div>
                                 </div>
                             </div>
 
@@ -201,8 +238,489 @@
                         </div>
                     </div>
                 </div>
+
+                       
             </div>
         </div>
+        <div class="horse-grid">
+    <div class="horse-card-collapsible filter-item medium">
+        <div class="card-content">
+            <div class="horse-portrait">
+                <img src="icon_special_week.png" alt="Special Week">
+            </div>
+
+            <div class="basic-info">
+                <h3>Special Week</h3>
+                <p class="owner-name">Trained by: <span>Deltaroot</span></p> 
+                <button class="toggle-stats-btn" onclick="toggleStats(this)">Show Stats</button>
+            </div>
+
+            <div class="stats-collapsible">
+                <div class="stats-padding">
+                    <div class="stat-row">
+                        <div class="stat-label-container">
+                            <span class="stat-name">Speed</span>
+                            <div class="stat-values">
+                                <span class="current-val" data-target="1200">0</span>
+                                <span class="max-val">/ 1200</span>
+                            </div>
+                        </div>
+                        <div class="stat-bar-bg">
+                            <div class="bar-fill gold-gradient" data-value="1200" style="width: 0%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label-container">
+                            <span class="stat-name">Stamina</span>
+                            <div class="stat-values">
+                                <span class="current-val" data-target="865">0</span>
+                                <span class="max-val">/ 1200</span>
+                            </div>
+                        </div>
+                        <div class="stat-bar-bg">
+                            <div class="bar-fill gold-gradient" data-value="865" style="width: 0%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label-container">
+                            <span class="stat-name">Power</span>
+                            <div class="stat-values">
+                                <span class="current-val" data-target="834">0</span>
+                                <span class="max-val">/ 1200</span>
+                            </div>
+                        </div>
+                        <div class="stat-bar-bg">
+                            <div class="bar-fill gold-gradient" data-value="834" style="width: 0%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label-container">
+                            <span class="stat-name">Gut</span>
+                            <div class="stat-values">
+                                <span class="current-val" data-target="421">0</span>
+                                <span class="max-val">/ 1200</span>
+                            </div>
+                        </div>
+                        <div class="stat-bar-bg">
+                            <div class="bar-fill gold-gradient" data-value="421" style="width: 0%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label-container">
+                            <span class="stat-name">Wit</span>
+                            <div class="stat-values">
+                                <span class="current-val" data-target="326">0</span>
+                                <span class="max-val">/ 1200</span>
+                            </div>
+                        </div>
+                        <div class="stat-bar-bg">
+                            <div class="bar-fill gold-gradient" data-value="326" style="width: 0%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="extra-details">
+                        <p><strong>Strategy:</strong> Pace Chaser, Late Surger</p>
+                        <p><strong>Fan Vote:</strong> 320,000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+            <div class="horse-grid">
+    <div class="horse-card-collapsible filter-item medium">
+        <div class="card-content">
+            <div class="horse-portrait">
+                <img src="icon_special_week.png" alt="Special Week">
+            </div>
+
+            <div class="basic-info">
+                <h3>Special Week</h3>
+                <p class="owner-name">Trained by: <span>Deltaroot</span></p> 
+                <button class="toggle-stats-btn" onclick="toggleStats(this)">Show Stats</button>
+            </div>
+
+            <div class="stats-collapsible">
+                <div class="stats-padding">
+                    <div class="stat-row">
+                        <div class="stat-label-container">
+                            <span class="stat-name">Speed</span>
+                            <div class="stat-values">
+                                <span class="current-val" data-target="1200">0</span>
+                                <span class="max-val">/ 1200</span>
+                            </div>
+                        </div>
+                        <div class="stat-bar-bg">
+                            <div class="bar-fill gold-gradient" data-value="1200" style="width: 0%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label-container">
+                            <span class="stat-name">Stamina</span>
+                            <div class="stat-values">
+                                <span class="current-val" data-target="865">0</span>
+                                <span class="max-val">/ 1200</span>
+                            </div>
+                        </div>
+                        <div class="stat-bar-bg">
+                            <div class="bar-fill gold-gradient" data-value="865" style="width: 0%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label-container">
+                            <span class="stat-name">Power</span>
+                            <div class="stat-values">
+                                <span class="current-val" data-target="834">0</span>
+                                <span class="max-val">/ 1200</span>
+                            </div>
+                        </div>
+                        <div class="stat-bar-bg">
+                            <div class="bar-fill gold-gradient" data-value="834" style="width: 0%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label-container">
+                            <span class="stat-name">Gut</span>
+                            <div class="stat-values">
+                                <span class="current-val" data-target="421">0</span>
+                                <span class="max-val">/ 1200</span>
+                            </div>
+                        </div>
+                        <div class="stat-bar-bg">
+                            <div class="bar-fill gold-gradient" data-value="421" style="width: 0%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="stat-row">
+                        <div class="stat-label-container">
+                            <span class="stat-name">Wit</span>
+                            <div class="stat-values">
+                                <span class="current-val" data-target="326">0</span>
+                                <span class="max-val">/ 1200</span>
+                            </div>
+                        </div>
+                        <div class="stat-bar-bg">
+                            <div class="bar-fill gold-gradient" data-value="326" style="width: 0%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="extra-details">
+                        <p><strong>Strategy:</strong> Pace Chaser, Late Surger</p>
+                        <p><strong>Fan Vote:</strong> 320,000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+                <div class="trainer-group filter-item medium">
+                    <div class="trainer-header" onclick="toggleTrainerGroup(this)">
+                        <div class="trainer-info">
+                            <span class="trainer-tag">Lavitar Club</span>
+                            <h2 class="trainer-name">Asta</h2>
+                        </div>
+                        <div class="trainer-roster-preview">
+                            <span>Special Week</span> • <span>Silence Suzuka</span> • <span>Air Groove</span>
+                        </div>
+                        <div class="expand-icon">▼</div>
+                    </div>
+
+                    <div class="trainer-roster-content">
+                                    <div class="horse-grid">
+                            <div class="horse-card-collapsible filter-item medium">
+                                <div class="card-content">
+                                    <div class="horse-portrait">
+                                        <img src="icon_special_week.png"
+                                            alt="Horse Name">
+                                    </div>
+
+                                    <div class="basic-info">
+                                        <h3>Special Week</h3>
+                                        <p class="owner-name">Trained by: <span>Deltaroot</span></p> 
+                                        <button class="toggle-stats-btn" onclick="toggleStats(this)">Show Stats</button>
+                                    </div>
+
+                                    <div class="stats-collapsible">
+                                        <div class="stats-padding">
+                                            <div class="stat-row">
+                                                <div class="stat-label-container">
+                                                    <span class="stat-name">Speed</span>
+                                                    <div class="stat-values">
+                                                        <span class="current-val" data-target="1200">1200</span>
+                                                        <span class="max-val">/ 1200</span>
+                                                    </div>
+                                                </div>
+                                                <div class="stat-bar-bg">
+                                                    <div class="bar-fill gold-gradient" data-value="1200"></div>
+                                                </div>
+                                            </div>
+                                            <div class="stat-row">
+                                                <div class="stat-label-container">
+                                                    <span class="stat-name">Stamina</span>
+                                                    <div class="stat-values">
+                                                        <span class="current-val" data-target="865">865</span>
+                                                        <span class="max-val">/ 1200</span>
+                                                    </div>
+                                                </div>
+                                                <div class="stat-bar-bg">
+                                                    <div class="bar-fill gold-gradient" data-value="865"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="stat-row">
+                                                <div class="stat-label-container">
+                                                    <span class="stat-name">Power</span>
+                                                    <div class="stat-values">
+                                                        <span class="current-val" data-target="1100">834</span>
+                                                        <span class="max-val">/ 1200</span>
+                                                    </div>
+                                                </div>
+                                                <div class="stat-bar-bg">
+                                                    <div class="bar-fill gold-gradient" data-value="834"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="stat-row">
+                                                <div class="stat-label-container">
+                                                    <span class="stat-name">Gut</span>
+                                                    <div class="stat-values">
+                                                        <span class="current-val" data-target="421">0</span>
+                                                        <span class="max-val">/ 1200</span>
+                                                    </div>
+                                                </div>
+                                                <div class="stat-bar-bg">
+                                                    <div class="bar-fill gold-gradient" data-value="421"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="stat-row">
+                                                <div class="stat-label-container">
+                                                    <span class="stat-name">Wit</span>
+                                                    <div class="stat-values">
+                                                        <span class="current-val" data-target="326">0</span>
+                                                        <span class="max-val">/ 1200</span>
+                                                    </div>
+                                                </div>
+                                                <div class="stat-bar-bg">
+                                                    <div class="bar-fill gold-gradient" data-value="326"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="extra-details">
+                                                <p><strong>Strategy:</strong> Pace Chaser, Late Surger</p>
+                                                <p><strong>Fan Vote:</strong> 320000</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    
+                            </div>
+                        </div>
+                        <div class="horse-grid">
+                    <div class="horse-card-collapsible filter-item medium">
+                        <div class="card-content">
+                            <div class="horse-portrait">
+                                <img src="icon_special_week.png" alt="Special Week">
+                            </div>
+
+                            <div class="basic-info">
+                                <h3>Special Week</h3>
+                                <p class="owner-name">Trained by: <span>Deltaroot</span></p> 
+                                <button class="toggle-stats-btn" onclick="toggleStats(this)">Show Stats</button>
+                            </div>
+
+                            <div class="stats-collapsible">
+                                <div class="stats-padding">
+                                    <div class="stat-row">
+                                        <div class="stat-label-container">
+                                            <span class="stat-name">Speed</span>
+                                            <div class="stat-values">
+                                                <span class="current-val" data-target="1200">0</span>
+                                                <span class="max-val">/ 1200</span>
+                                            </div>
+                                        </div>
+                                        <div class="stat-bar-bg">
+                                            <div class="bar-fill gold-gradient" data-value="1200" style="width: 0%;"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="stat-row">
+                                        <div class="stat-label-container">
+                                            <span class="stat-name">Stamina</span>
+                                            <div class="stat-values">
+                                                <span class="current-val" data-target="865">0</span>
+                                                <span class="max-val">/ 1200</span>
+                                            </div>
+                                        </div>
+                                        <div class="stat-bar-bg">
+                                            <div class="bar-fill gold-gradient" data-value="865" style="width: 0%;"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="stat-row">
+                                        <div class="stat-label-container">
+                                            <span class="stat-name">Power</span>
+                                            <div class="stat-values">
+                                                <span class="current-val" data-target="834">0</span>
+                                                <span class="max-val">/ 1200</span>
+                                            </div>
+                                        </div>
+                                        <div class="stat-bar-bg">
+                                            <div class="bar-fill gold-gradient" data-value="834" style="width: 0%;"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="stat-row">
+                                        <div class="stat-label-container">
+                                            <span class="stat-name">Gut</span>
+                                            <div class="stat-values">
+                                                <span class="current-val" data-target="421">0</span>
+                                                <span class="max-val">/ 1200</span>
+                                            </div>
+                                        </div>
+                                        <div class="stat-bar-bg">
+                                            <div class="bar-fill gold-gradient" data-value="421" style="width: 0%;"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="stat-row">
+                                        <div class="stat-label-container">
+                                            <span class="stat-name">Wit</span>
+                                            <div class="stat-values">
+                                                <span class="current-val" data-target="326">0</span>
+                                                <span class="max-val">/ 1200</span>
+                                            </div>
+                                        </div>
+                                        <div class="stat-bar-bg">
+                                            <div class="bar-fill gold-gradient" data-value="326" style="width: 0%;"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="extra-details">
+                                        <p><strong>Strategy:</strong> Pace Chaser, Late Surger</p>
+                                        <p><strong>Fan Vote:</strong> 320,000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+
+                            <div class="horse-grid">
+                    <div class="horse-card-collapsible filter-item medium">
+                        <div class="card-content">
+                            <div class="horse-portrait">
+                                <img src="icon_special_week.png" alt="Special Week">
+                            </div>
+
+                            <div class="basic-info">
+                                <h3>Special Week</h3>
+                                <p class="owner-name">Trained by: <span>Deltaroot</span></p> 
+                                <button class="toggle-stats-btn" onclick="toggleStats(this)">Show Stats</button>
+                            </div>
+
+                            <div class="stats-collapsible">
+                                <div class="stats-padding">
+                                    <div class="stat-row">
+                                        <div class="stat-label-container">
+                                            <span class="stat-name">Speed</span>
+                                            <div class="stat-values">
+                                                <span class="current-val" data-target="1200">0</span>
+                                                <span class="max-val">/ 1200</span>
+                                            </div>
+                                        </div>
+                                        <div class="stat-bar-bg">
+                                            <div class="bar-fill gold-gradient" data-value="1200" style="width: 0%;"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="stat-row">
+                                        <div class="stat-label-container">
+                                            <span class="stat-name">Stamina</span>
+                                            <div class="stat-values">
+                                                <span class="current-val" data-target="865">0</span>
+                                                <span class="max-val">/ 1200</span>
+                                            </div>
+                                        </div>
+                                        <div class="stat-bar-bg">
+                                            <div class="bar-fill gold-gradient" data-value="865" style="width: 0%;"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="stat-row">
+                                        <div class="stat-label-container">
+                                            <span class="stat-name">Power</span>
+                                            <div class="stat-values">
+                                                <span class="current-val" data-target="834">0</span>
+                                                <span class="max-val">/ 1200</span>
+                                            </div>
+                                        </div>
+                                        <div class="stat-bar-bg">
+                                            <div class="bar-fill gold-gradient" data-value="834" style="width: 0%;"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="stat-row">
+                                        <div class="stat-label-container">
+                                            <span class="stat-name">Gut</span>
+                                            <div class="stat-values">
+                                                <span class="current-val" data-target="421">0</span>
+                                                <span class="max-val">/ 1200</span>
+                                            </div>
+                                        </div>
+                                        <div class="stat-bar-bg">
+                                            <div class="bar-fill gold-gradient" data-value="421" style="width: 0%;"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="stat-row">
+                                        <div class="stat-label-container">
+                                            <span class="stat-name">Wit</span>
+                                            <div class="stat-values">
+                                                <span class="current-val" data-target="326">0</span>
+                                                <span class="max-val">/ 1200</span>
+                                            </div>
+                                        </div>
+                                        <div class="stat-bar-bg">
+                                            <div class="bar-fill gold-gradient" data-value="326" style="width: 0%;"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="extra-details">
+                                        <p><strong>Strategy:</strong> Pace Chaser, Late Surger</p>
+                                        <p><strong>Fan Vote:</strong> 320,000</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                </div>
     </section>
 
     <section id="club-info" class="club-section">
@@ -297,49 +815,40 @@
             });
         }
 
-        function toggleStats(btn) {
-            // Find the stats box relative to the button clicked
-            const card = btn.closest('.horse-card-collapsible');
-            const statsBox = card.querySelector('.stats-collapsible');
 
-            // Toggle the 'open' class
-            statsBox.classList.toggle('open');
 
-            // Change button text
-            if (statsBox.classList.contains('open')) {
-                btn.innerText = "Hide Stats";
-            } else {
-                btn.innerText = "Show Stats";
-            }
-        }
+        function updateStats(specificCard) {
+            const bars = specificCard.querySelectorAll('.bar-fill');
+            const numbers = specificCard.querySelectorAll('.current-val');
 
-        function updateStats() {
-            const bars = document.querySelectorAll('.bar-fill');
-            const numbers = document.querySelectorAll('.current-val');
-
-            // 1. Calculate and set Bar Widths
+            // Resetting width to 0 first ensures the animation triggers every time
             bars.forEach(bar => {
-                const val = parseInt(bar.getAttribute('data-value'));
-                const max = 1200;
-                const percentage = (val / max) * 100;
-
-                // Apply width after a tiny delay for smooth animation
+                bar.style.width = "0%"; 
+                
+                // We use a small delay (100ms) so the 'open' animation starts first
                 setTimeout(() => {
+                    const val = parseInt(bar.getAttribute('data-value'));
+                    const max = 1200;
+                    const percentage = (val / max) * 100;
+                    
+                    // Set the calculated percentage
                     bar.style.width = percentage + "%";
-                }, 300);
+                }, 150); 
             });
 
-            // 2. Animate the numbers counting up
+            // Number counting logic
             numbers.forEach(num => {
                 const target = parseInt(num.getAttribute('data-target'));
                 let current = 0;
-                const increment = target / 50; // Speed of counting
-
+                const duration = 1500; // 1.5 seconds
+                const steps = 50;
+                const increment = target / steps;
+                
                 const updateCount = () => {
                     if (current < target) {
                         current += increment;
                         num.innerText = Math.ceil(current);
-                        setTimeout(updateCount, 20);
+                        setTimeout(updateCount, duration / steps);
                     } else {
                         num.innerText = target;
                     }
@@ -347,22 +856,79 @@
                 updateCount();
             });
         }
-
-        // Run the script when the "Show Stats" button is clicked
         function toggleStats(btn) {
+            // 1. Find the card that belongs to the clicked button
             const card = btn.closest('.horse-card-collapsible');
+            
+            // 2. Find the stats box ONLY inside that card
             const statsBox = card.querySelector('.stats-collapsible');
-
+            
+            // Toggle 'open' class
             statsBox.classList.toggle('open');
-
+            
             if (statsBox.classList.contains('open')) {
                 btn.innerText = "Hide Stats";
-                // Trigger the bar and number animation
-                updateStats();
+                // 3. Trigger animation ONLY for this specific card
+                animateStats(card);
             } else {
                 btn.innerText = "Show Stats";
+                // Optional: Reset bars when closing
+                const bars = card.querySelectorAll('.bar-fill');
+                bars.forEach(bar => bar.style.width = "0%");
             }
         }
+
+        function animateStats(card) {
+            // IMPORTANT: Use card.querySelectorAll, NOT document.querySelectorAll
+            const bars = card.querySelectorAll('.bar-fill');
+            const numbers = card.querySelectorAll('.current-val');
+
+            bars.forEach(bar => {
+                const val = parseInt(bar.getAttribute('data-value'));
+                const percentage = (val / 1200) * 100;
+                
+                // Timeout to allow the expansion to start first
+                setTimeout(() => {
+                    bar.style.width = percentage + "%";
+                }, 300);
+            });
+
+            numbers.forEach(num => {
+                const target = parseInt(num.getAttribute('data-target'));
+                let current = 0;
+                const duration = 1000; // 1 second
+                const steps = 30;
+                const increment = target / steps;
+                
+                const countInterval = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        num.innerText = target;
+                        clearInterval(countInterval);
+                    } else {
+                        num.innerText = Math.floor(current);
+                    }
+                }, duration / steps);
+            });
+        }
+
+
+        function toggleTrainerGroup(header) {
+    const group = header.closest('.trainer-group');
+    const preview = header.querySelector('.trainer-roster-preview');
+    
+    group.classList.toggle('active');
+
+    // Toggle the horse name list visibility
+    if (group.classList.contains('active')) {
+        preview.style.opacity = "0"; // Hide names when horses are visible
+    } else {
+        preview.style.opacity = "1"; // Show names when collapsed
+    }
+}
+
+// Ensure your existing toggleStats(this) still works for individual horses inside!
+
     </script>
 </body>
 
