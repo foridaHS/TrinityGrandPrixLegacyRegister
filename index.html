@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,112 +23,216 @@
         </nav>
     </header>
 
-        <section id="home" class="hero">
-            <video autoplay muted loop playsinline class="hero-video">
-                <source src="https://res.cloudinary.com/dtueq5dkb/video/upload/v1767645898/LavitarWebVideo_1_hey3tc.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="hero-content">
-                <p class="club-name">LAVITAR RACING CLUB PRESENTS</p>
-                <h1>Lavitar Cup<br><span class="subtitle">Legend Chronicle</span></h1>
-                <p class="hero-description">Where legends are born and history is written on the turf.</p>
-                <div class="hero-btns">
-                    <a href="YOUR_GOOGLE_FORM_URL_HERE" target="_blank" class="cta-button gold">Participate Now</a>
-                    <a href="#schedule" class="cta-button outline">View Schedule</a>
-                </div>
+    <section id="home" class="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="https://res.cloudinary.com/dtueq5dkb/video/upload/v1767645898/LavitarWebVideo_1_hey3tc.mp4"
+                type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <p class="club-name">LAVITAR RACING CLUB PRESENTS</p>
+            <h1>Lavitar Cup<br><span class="subtitle">Legend Chronicle</span></h1>
+            <p class="hero-description">Where legends are born and history is written on the turf.</p>
+            <div class="hero-btns">
+                <a href="https://forms.gle/5JqwFZbtCdUdz9ta8" target="_blank" class="cta-button gold">Participate
+                    Now</a>
+                <a href="#schedule" class="cta-button outline">View Schedule</a>
             </div>
-        </section>
+        </div>
+    </section>
 
     <section id="participate" class="participation-bar">
         <div class="container">
             <h2>Ready to Make History?</h2>
             <p>Register your entry for the Lavitar Cup Legend Chronicle through our official registration portal.</p>
-            <a href="YOUR_GOOGLE_FORM_URL_HERE" target="_blank" class="register-btn">Open Registration Form</a>
+            <a href="https://forms.gle/5JqwFZbtCdUdz9ta8" target="_blank" class="register-btn">Open Registration
+                Form</a>
         </div>
     </section>
 
     <section id="schedule" class="container">
         <h2 class="section-title">Official Race Program</h2>
-        <table class="schedule-table">
+
+        <div class="schedule-filter">
+            <button class="s-filter-btn active" onclick="filterSchedule('all')">All Distances</button>
+            <button class="s-filter-btn" onclick="filterSchedule('miles')">Miles</button>
+            <button class="s-filter-btn" onclick="filterSchedule('medium')">Medium</button>
+            <button class="s-filter-btn" onclick="filterSchedule('long')">Long</button>
+        </div>
+
+        <table class="schedule-table" id="raceTable">
             <thead>
                 <tr>
                     <th>Time</th>
                     <th>Race Event</th>
                     <th>Distance</th>
-                    <th>Prize Pool</th>
+                    <th>Category</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr class="race-row miles">
                     <td>13:00</td>
-                    <td>Club Member Sprint</td>
-                    <td>1000m</td>
-                    <td>$25,000</td>
+                    <td>Lavitar Junior Sprint</td>
+                    <td>1200m</td>
+                    <td><span class="badge mile-bg">Mile</span></td>
                 </tr>
-                <tr>
-                    <td>15:00</td>
-                    <td>The Chronicle Stakes</td>
-                    <td>1800m</td>
-                    <td>$100,000</td>
+                <tr class="race-row miles">
+                    <td>14:30</td>
+                    <td>The Golden Mile</td>
+                    <td>1600m</td>
+                    <td><span class="badge mile-bg">Mile</span></td>
                 </tr>
-                <tr class="main-event-row">
+                <tr class="race-row medium main-event-row">
                     <td>17:30</td>
                     <td><strong>Lavitar Cup Legend Chronicle</strong></td>
                     <td>2400m</td>
-                    <td>$500,000</td>
+                    <td><span class="badge med-bg">Medium</span></td>
+                </tr>
+                <tr class="race-row medium">
+                    <td>18:45</td>
+                    <td>Classic Turf Stakes</td>
+                    <td>2000m</td>
+                    <td><span class="badge med-bg">Medium</span></td>
+                </tr>
+                <tr class="race-row long">
+                    <td>19:30</td>
+                    <td>The Marathon Shield</td>
+                    <td>3200m</td>
+                    <td><span class="badge long-bg">Long</span></td>
                 </tr>
             </tbody>
         </table>
     </section>
 
-            <section id="stable" class="container">
+    <section id="stable" class="container">
         <h2 class="section-title">The Contenders</h2>
-        
+
         <div class="filter-container">
             <button class="filter-btn active" onclick="filterSelection('all')">All Classes</button>
             <button class="filter-btn" onclick="filterSelection('miles')">Miles (1600m)</button>
             <button class="filter-btn" onclick="filterSelection('medium')">Medium (2000m-2400m)</button>
             <button class="filter-btn" onclick="filterSelection('long')">Long (3000m+)</button>
         </div>
-        
-        <div class="horse-grid" id="horseGrid">
-            <div class="horse-card filter-item miles">
-                <div class="horse-image">
-                    <img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&q=80&w=400" alt="Horse">
-                    <span class="category-tag">Miles</span>
-                </div>
-                <div class="horse-info">
-                    <h3>Sprint Legend</h3>
-                    <p class="owner">Stable: Lavitar Elite</p>
-                    <span class="status-tag">Confirmed</span>
-                </div>
-            </div>
 
-            <div class="horse-card filter-item medium">
-                <div class="horse-image">
-                    <img src="https://images.unsplash.com/photo-1598974357801-cbca100e65d3?auto=format&fit=crop&q=80&w=400" alt="Horse">
-                    <span class="category-tag">Medium</span>
-                </div>
-                <div class="horse-info">
-                    <h3>Midnight Chronicle</h3>
-                    <p class="owner">Stable: Royal Turf</p>
-                    <span class="status-tag">Top Seed</span>
-                </div>
-            </div>
+        <div class="horse-grid">
+            <div class="horse-card-collapsible filter-item miles">
+                <div class="card-content">
+                    <div class="horse-portrait">
+                        <img src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&q=80&w=400"
+                            alt="Horse Name">
+                    </div>
 
-            <div class="horse-card filter-item long">
-                <div class="horse-image">
-                    <img src="https://images.unsplash.com/photo-1534418571333-6625890e87d0?auto=format&fit=crop&q=80&w=400" alt="Horse">
-                    <span class="category-tag">Long</span>
-                </div>
-                <div class="horse-info">
-                    <h3>Endurance King</h3>
-                    <p class="owner">Stable: North Star</p>
-                    <span class="status-tag">Confirmed</span>
+                    <div class="basic-info">
+                        <h3>Midnight Thunder</h3>
+                        <p class="owner-name">Trained by: <span>Lavitar Racing Club</span></p> <button
+                            class="toggle-stats-btn" onclick="toggleStats(this)">Show Stats</button>
+                    </div>
+
+                    <div class="stats-collapsible">
+                        <div class="stats-padding">
+                            <div class="stat-row">
+                                <div class="stat-label-container">
+                                    <span class="stat-name">Speed</span>
+                                    <div class="stat-values">
+                                        <span class="current-val" data-target="1100">0</span>
+                                        <span class="max-val">/ 1200</span>
+                                    </div>
+                                </div>
+                                <div class="stat-bar-bg">
+                                    <div class="bar-fill gold-gradient" data-value="1100"></div>
+                                </div>
+                            </div>
+                            <div class="stat-row">
+                                <div class="stat-label-container">
+                                    <span class="stat-name">Stamina</span>
+                                    <div class="stat-values">
+                                        <span class="current-val" data-target="1100">0</span>
+                                        <span class="max-val">/ 1200</span>
+                                    </div>
+                                </div>
+                                <div class="stat-bar-bg">
+                                    <div class="bar-fill gold-gradient" data-value="1100"></div>
+                                </div>
+                            </div>
+
+                            <div class="stat-row">
+                                <div class="stat-label-container">
+                                    <span class="stat-name">Power</span>
+                                    <div class="stat-values">
+                                        <span class="current-val" data-target="1100">0</span>
+                                        <span class="max-val">/ 1200</span>
+                                    </div>
+                                </div>
+                                <div class="stat-bar-bg">
+                                    <div class="bar-fill gold-gradient" data-value="1100"></div>
+                                </div>
+                            </div>
+
+                            <div class="stat-row">
+                                <div class="stat-label-container">
+                                    <span class="stat-name">Gut</span>
+                                    <div class="stat-values">
+                                        <span class="current-val" data-target="1100">0</span>
+                                        <span class="max-val">/ 1200</span>
+                                    </div>
+                                </div>
+                                <div class="stat-bar-bg">
+                                    <div class="bar-fill gold-gradient" data-value="1100"></div>
+                                </div>
+                            </div>
+
+                            <div class="stat-row">
+                                <div class="stat-label-container">
+                                    <span class="stat-name">Wit</span>
+                                    <div class="stat-values">
+                                        <span class="current-val" data-target="1100">0</span>
+                                        <span class="max-val">/ 1200</span>
+                                    </div>
+                                </div>
+                                <div class="stat-bar-bg">
+                                    <div class="bar-fill gold-gradient" data-value="1100"></div>
+                                </div>
+                            </div>
+
+                            <div class="extra-details">
+                                <p><strong>Strategy:</strong> Pace Chaser, Late Surger</p>
+                                <p><strong>Fan Vote:</strong> 320000</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <section id="club-info" class="club-section">
+        <div class="container club-flex">
+
+            <div class="triangle-frame-container">
+                <div class="triangle-path">
+                    <img src="https://images.unsplash.com/photo-1551884831-bbf3cdc6469e?auto=format&fit=crop&q=80&w=800"
+                        alt="Lavitar Club Estate">
+                </div>
+            </div>
+
+            <div class="club-text">
+                <span class="gold-label">Est. 2024</span>
+                <h2>About Lavitar Racing Club</h2>
+                <p>Founded on the principles of excellence and bloodline prestige, the Lavitar Racing Club is the
+                    premier destination for thoroughbred enthusiasts. Our mission is to preserve the legacy of racing
+                    while hosting the annual Legend Chronicle.</p>
+
+                <ul class="club-features">
+                    <li><strong>Elite Breeding:</strong> Access to the world's most sought-after bloodlines.</li>
+                    <li><strong>The Estate:</strong> 500 acres of world-class training turf.</li>
+                    <li><strong>Legacy:</strong> A community dedicated to the history of the sport.</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+
 
     <footer>
         <p>&copy; 2026 Lavitar Racing Club. All rights reserved.</p>
@@ -137,33 +242,128 @@
 
 
     <script>
-    function filterSelection(category) {
-        const items = document.getElementsByClassName('filter-item');
-        const buttons = document.getElementsByClassName('filter-btn');
-        
-        // Update active button state
-        for (let btn of buttons) {
-            btn.classList.remove('active');
-            if (btn.innerText.toLowerCase().includes(category)) {
-                btn.classList.add('active');
-            } else if (category === 'all' && btn.innerText.includes('All')) {
-                btn.classList.add('active');
-            }
-        }
+        function filterSelection(category) {
+            const items = document.getElementsByClassName('filter-item');
+            const buttons = document.getElementsByClassName('filter-btn');
 
-        // Filter cards
-        for (let item of items) {
-            if (category === 'all') {
-                item.classList.remove('hide');
-            } else {
-                if (item.classList.contains(category)) {
+            // Update active button state
+            for (let btn of buttons) {
+                btn.classList.remove('active');
+                if (btn.innerText.toLowerCase().includes(category)) {
+                    btn.classList.add('active');
+                } else if (category === 'all' && btn.innerText.includes('All')) {
+                    btn.classList.add('active');
+                }
+            }
+
+            // Filter cards
+            for (let item of items) {
+                if (category === 'all') {
                     item.classList.remove('hide');
                 } else {
-                    item.classList.add('hide');
+                    if (item.classList.contains(category)) {
+                        item.classList.remove('hide');
+                    } else {
+                        item.classList.add('hide');
+                    }
                 }
             }
         }
-    }
-</script>
+        function filterSchedule(category) {
+            const rows = document.querySelectorAll('.race-row');
+            const buttons = document.querySelectorAll('.s-filter-btn');
+
+            // Update button visual state
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.innerText.toLowerCase().includes(category)) {
+                    btn.classList.add('active');
+                } else if (category === 'all' && btn.innerText.includes('All')) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Filter Table Rows
+            rows.forEach(row => {
+                if (category === 'all') {
+                    row.classList.remove('hide');
+                } else {
+                    if (row.classList.contains(category)) {
+                        row.classList.remove('hide');
+                    } else {
+                        row.classList.add('hide');
+                    }
+                }
+            });
+        }
+
+        function toggleStats(btn) {
+            // Find the stats box relative to the button clicked
+            const card = btn.closest('.horse-card-collapsible');
+            const statsBox = card.querySelector('.stats-collapsible');
+
+            // Toggle the 'open' class
+            statsBox.classList.toggle('open');
+
+            // Change button text
+            if (statsBox.classList.contains('open')) {
+                btn.innerText = "Hide Stats";
+            } else {
+                btn.innerText = "Show Stats";
+            }
+        }
+
+        function updateStats() {
+            const bars = document.querySelectorAll('.bar-fill');
+            const numbers = document.querySelectorAll('.current-val');
+
+            // 1. Calculate and set Bar Widths
+            bars.forEach(bar => {
+                const val = parseInt(bar.getAttribute('data-value'));
+                const max = 1200;
+                const percentage = (val / max) * 100;
+
+                // Apply width after a tiny delay for smooth animation
+                setTimeout(() => {
+                    bar.style.width = percentage + "%";
+                }, 300);
+            });
+
+            // 2. Animate the numbers counting up
+            numbers.forEach(num => {
+                const target = parseInt(num.getAttribute('data-target'));
+                let current = 0;
+                const increment = target / 50; // Speed of counting
+
+                const updateCount = () => {
+                    if (current < target) {
+                        current += increment;
+                        num.innerText = Math.ceil(current);
+                        setTimeout(updateCount, 20);
+                    } else {
+                        num.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        }
+
+        // Run the script when the "Show Stats" button is clicked
+        function toggleStats(btn) {
+            const card = btn.closest('.horse-card-collapsible');
+            const statsBox = card.querySelector('.stats-collapsible');
+
+            statsBox.classList.toggle('open');
+
+            if (statsBox.classList.contains('open')) {
+                btn.innerText = "Hide Stats";
+                // Trigger the bar and number animation
+                updateStats();
+            } else {
+                btn.innerText = "Show Stats";
+            }
+        }
+    </script>
 </body>
+
 </html>
