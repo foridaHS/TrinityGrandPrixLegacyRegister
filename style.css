@@ -908,7 +908,7 @@ footer { background: #1a1a1a; color: #666; text-align: center; padding: 40px; fo
 
 .horse-portrait img {
     width: 100%;
-    height: 100%;
+    height: 95%;
     object-fit: cover;
 }
 
@@ -1018,19 +1018,20 @@ footer { background: #1a1a1a; color: #666; text-align: center; padding: 40px; fo
 }
 .bar-fill {
     height: 100%;
-    width: 0;
+    display: block; /* Ensures it takes up full height of parent */
     background: linear-gradient(90deg, #8a6d3b, #c5a059, #ffe47a, #c5a059);
     background-size: 200% auto;
-    transition: width 1.5s cubic-bezier(0.1, 0.5, 0.2, 1);
+    transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .stat-bar-bg {
     width: 100%;
-    height: 10px; /* Uniform thickness for all bars */
+    height: 12px;
     background: #000;
-    border-radius: 5px;
+    border-radius: 6px;
     border: 1px solid #333;
-    overflow: hidden;
+    overflow: hidden; /* Vital: clips the gold fill to the rounded corners */
     position: relative;
+    margin-top: 5px;
 }
 .fill {
     height: 100%;
@@ -1060,17 +1061,17 @@ footer { background: #1a1a1a; color: #666; text-align: center; padding: 40px; fo
     font-weight: 500;
 }
 
-/* Collapsible Area Update */
 .stats-collapsible {
-    max-height: 0;
+    max-height: 0; /* Hidden state */
     overflow: hidden;
-    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Smoother expansion */
-    background: #222;
+    transition: max-height 0.6s ease-in-out, opacity 0.4s ease;
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.02);
 }
 
-/* Increase max-height to accommodate more rows */
 .stats-collapsible.open {
-    max-height: 600px; 
+    max-height: 1000px; /* Big enough to fit all content */
+    opacity: 1;
 }
 
 
@@ -1111,6 +1112,121 @@ footer { background: #1a1a1a; color: #666; text-align: center; padding: 40px; fo
 
 
 /* Fill Logic */
+
+/* Trainer Group Container */
+.trainer-group {
+    margin-bottom: 30px;
+    width: 100%;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.03);
+    overflow: hidden;
+}
+
+/* Update the Trainer Header styling */
+.trainer-header {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    position: relative; /* Required for the shining effect */
+    overflow: hidden;   /* Keeps the shine inside the header */
+    border-bottom: 1px solid rgba(197, 160, 89, 0.1);
+}
+
+/* The "Metallic Shine" Light Beam */
+.trainer-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%; /* Start well off-screen to the left */
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.1) 30%, 
+        rgba(255, 255, 255, 0.4) 50%, 
+        rgba(255, 255, 255, 0.1) 70%, 
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg); /* Slants the light beam */
+    transition: none;
+}
+
+/* Trigger the Shine on Hover */
+.trainer-header:hover::before {
+    left: 150%; /* Move the beam across to the right */
+    transition: left 0.7s ease-in-out; /* Speed of the metallic sweep */
+}
+
+/* Add a subtle gold glow to the border on hover */
+.trainer-group:hover {
+    border-color: rgba(197, 160, 89, 0.6);
+    box-shadow: 0 0 15px rgba(197, 160, 89, 0.1);
+}
+
+/* Keep text readable during shine */
+.trainer-header:hover .trainer-name {
+    text-shadow: 0 0 10px rgba(197, 160, 89, 0.4);
+    transition: 0.3s;
+}
+
+
+.trainer-tag {
+    color: #c5a059;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.trainer-name {
+    color: white;
+    margin: 5px 0 0 0;
+    font-family: 'Georgia', serif;
+}
+
+/* The name list visible when collapsed */
+.trainer-roster-preview {
+    color: #888;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.trainer-roster-preview span {
+    color: #aaa;
+}
+
+.expand-icon {
+    color: #c5a059;
+    transition: transform 0.4s;
+}
+
+/* Roster Content (Nested Grid) */
+.trainer-roster-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.trainer-group.active .trainer-roster-content {
+    max-height: 2500px; /* High enough to fit 3 expanded horses */
+}
+
+.trainer-group.active .expand-icon {
+    transform: rotate(180deg);
+}
+
+/* Ensure the inner horse-grid looks good inside the roster */
+.trainer-roster-content .horse-grid {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
+
 
 @keyframes shimmer {
     0% { background-position: 0% 50%; }
