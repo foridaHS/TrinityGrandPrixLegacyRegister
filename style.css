@@ -365,3 +365,754 @@ footer { background: #1a1a1a; color: #666; text-align: center; padding: 40px; fo
     height: 100%;
     object-fit: cover; /* Ensures video fills the card area */
 }
+
+
+/* Club Section Layout */
+.club-section {
+    background-color: #1a1a1a; /* Dark background to make the triangle pop */
+    color: white;
+    padding: 100px 10%;
+    overflow: hidden;
+}
+
+.club-flex {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap; /* Stack on mobile */
+}
+
+/* The Triangle Frame */
+.triangle-frame-container {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.triangle-path {
+    width: 100%;
+    max-width: 450px;
+    height: 450px;
+    /* This creates the triangle shape */
+    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+    background: #c5a059; /* Gold border effect if image fails */
+    overflow: hidden;
+}
+
+.triangle-path img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.triangle-path:hover img {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Club Text Styling */
+.club-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.gold-label {
+    color: #c5a059;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.club-text h2 {
+    font-size: 2.8rem;
+    margin: 15px 0;
+    font-family: 'Georgia', serif;
+}
+
+.club-text p {
+    color: #ccc;
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+.club-features {
+    list-style: none;
+}
+
+.club-features li {
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
+}
+
+/* Small gold triangle bullet points */
+.club-features li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: #c5a059;
+    font-size: 0.8rem;
+    top: 4px;
+}
+
+/* Schedule Filter Container */
+.schedule-filter {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.s-filter-btn {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 8px 20px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 20px; /* Rounder style for the table filters */
+    transition: 0.3s;
+}
+
+.s-filter-btn.active, .s-filter-btn:hover {
+    background: #1a1a1a;
+    color: #c5a059;
+    border-color: #c5a059;
+}
+
+/* Category Badges */
+.badge {
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.mile-bg { background: #e3f2fd; color: #1976d2; }
+.med-bg { background: #fff3e0; color: #f57c00; }
+.long-bg { background: #f1f8e9; color: #388e3c; }
+
+/* Table Row Transition */
+.race-row {
+    transition: opacity 0.4s ease;
+}
+
+.race-row.hide {
+    display: none;
+}
+
+/* Container for the Horse Card */
+.horse-card {
+    text-align: center;
+    background: transparent; /* Removed background for a cleaner look */
+    box-shadow: none;
+    transition: transform 0.3s ease;
+}
+
+/* The Circle Wrapper */
+.horse-circle {
+    width: 250px; /* Fixed size to ensure it's a perfect circle */
+    height: 250px;
+    margin: 0 auto 15px auto;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    border: 4px solid #c5a059; /* Gold ring around the horse */
+    cursor: pointer;
+}
+
+.card-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* The Secret Detail Overlay */
+.horse-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 26, 26, 0.85); /* Dark background on hover */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.4s ease;
+    color: white;
+    padding: 20px;
+}
+
+.overlay-content h3 {
+    color: #c5a059;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.overlay-content p {
+    font-size: 0.85rem;
+    margin: 4px 0;
+}
+
+.view-profile {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid #c5a059;
+}
+
+/* Triggering the Hover */
+.horse-card:hover .horse-overlay {
+    opacity: 1; /* Reveals the detail */
+}
+
+.horse-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Visible name label below the circle */
+.horse-name-label {
+    font-family: 'Georgia', serif;
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    margin-top: 10px;
+}
+
+
+/* Container for the whole card */
+.horse-card-alt {
+    margin-bottom: 40px;
+    display: inline-block;
+}
+
+/* Flex wrapper to keep circle and details side-by-side */
+.horse-circle-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+/* The Circular Image */
+.horse-circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 4px solid #c5a059;
+    overflow: hidden;
+    z-index: 2; /* Keeps the circle on top of the expanding panel */
+    background: #1a1a1a;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.horse-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* The Side Details (Hidden by default) */
+.horse-details-side {
+    background: #1a1a1a;
+    color: white;
+    height: 150px; /* Slightly shorter than the circle */
+    max-width: 0; /* This is the "closed" state */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    border-radius: 0 40px 40px 0; /* Rounded right side */
+    margin-left: -40px; /* Overlaps slightly behind the circle */
+    padding-left: 0;
+    transition: max-width 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+                padding 0.4s ease, 
+                opacity 0.4s ease;
+    opacity: 0;
+    z-index: 1;
+}
+
+/* Content inside the details */
+.details-inner {
+    min-width: 250px; /* Prevents text from squishing during animation */
+    padding: 20px 30px 20px 50px;
+    text-align: left;
+}
+
+.details-inner h3 {
+    color: #c5a059;
+    margin: 5px 0;
+}
+
+.category-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #888;
+    letter-spacing: 1px;
+}
+
+.details-inner p {
+    font-size: 0.85rem;
+    margin: 2px 0;
+}
+
+.small-btn {
+    display: inline-block;
+    margin-top: 10px;
+    color: #c5a059;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-bottom: 1px solid #c5a059;
+}
+
+/* HOVER EFFECTS */
+.horse-circle-container:hover .horse-details-side {
+    max-width: 500px; /* The "open" state */
+    opacity: 1;
+    padding-left: 10px;
+}
+
+.horse-circle-container:hover .horse-circle {
+    transform: scale(1.05); /* Circle grows slightly when details pop out */
+    border-color: #fff;
+}
+
+/* --- Keep all your previous CSS here --- */
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+    .horse-circle-container {
+        flex-direction: column; /* Stacks circle and details vertically */
+        align-items: center;
+    }
+
+    .horse-circle {
+        width: 150px; /* Slightly smaller for mobile */
+        height: 150px;
+        z-index: 3;
+    }
+
+/* Expand the detail panel width to fit stats */
+/* The Side Details (The "Sliding Door") */
+.horse-details-side {
+    background: #1a1a1a;
+    color: white;
+    /* Changed height to auto to fit all content */
+    height: auto; 
+    min-height: 220px; 
+    max-width: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    border-radius: 0 20px 20px 0;
+    margin-left: -60px; /* Slight overlap with the circle */
+    transition: max-width 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+                opacity 0.4s ease;
+    opacity: 0;
+    z-index: 1;
+    border: 1px solid rgba(197, 160, 89, 0.4);
+    box-shadow: 10px 0 20px rgba(0,0,0,0.5);
+}
+
+/* The Content Wrapper */
+.details-inner {
+    /* Set a specific width so the layout is stable */
+    width: 320px; 
+    /* Increased left padding to push text past the horse circle */
+    padding: 20px 25px 20px 80px; 
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Ensure headings don't wrap and cause height issues */
+.details-header h3 {
+    white-space: nowrap;
+    margin-bottom: 2px;
+}
+
+/* Stats Section Layout */
+.stats-grid {
+    margin: 12px 0;
+}
+
+.stat-item {
+    margin-bottom: 10px;
+}
+
+.stat-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+}
+
+/* Prevent the Fan Vote from being cut off at the bottom */
+.fan-vote-box {
+    margin-top: auto; /* Pushes to the bottom of the flex container */
+    padding: 10px;
+    background: rgba(197, 160, 89, 0.1);
+    border-radius: 4px;
+    border-left: 3px solid #c5a059;
+}
+
+/* Hover State */
+.horse-circle-container:hover .horse-details-side {
+    /* Set max-width to the width of details-inner (320px) + some buffer */
+    max-width: 420px; 
+    opacity: 1;
+}
+
+}
+
+/* The Grid Layout */
+.horse-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+/* The Main Card Container */
+.horse-card-new {
+    background: #1a1a1a;
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: visible; /* Allows the circle to "pop" out top */
+    margin-top: 50px; /* Space for the circle popping up */
+}
+
+/* Portrait Styling */
+.horse-circle-top {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 4px solid #c5a059;
+    margin: -70px auto 15px auto; /* Pulls half the circle out of the box */
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.horse-circle-top img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Rank Tag over Image */
+.rank-tag {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #c5a059;
+    color: #1a1a1a;
+    padding: 4px 12px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+/* Stats Box Styling */
+.horse-stats-box {
+    text-align: center;
+    color: white;
+}
+
+.stats-header h3 {
+    color: #c5a059;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.stable-name {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+/* Stat Bars */
+.stats-body {
+    margin-bottom: 20px;
+}
+
+.stat-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 0.85rem;
+}
+
+.stat-bar {
+    width: 150px;
+    height: 6px;
+    background: #333;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.fill {
+    height: 100%;
+    background: linear-gradient(90deg, #c5a059, #fff);
+    border-radius: 3px;
+}
+
+.stat-text {
+    color: #c5a059;
+    font-weight: bold;
+}
+
+/* Footer Section */
+.fan-vote-footer {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+/* HOVER EFFECT: Card glows and lifts up */
+.horse-card-new:hover {
+    transform: translateY(-10px);
+    border-color: #c5a059;
+    box-shadow: 0 15px 30px rgba(197, 160, 89, 0.2);
+}
+.horse-card-collapsible {
+    background: #1a1a1a;
+    border-radius: 15px;
+    border: 1px solid #c5a059;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.horse-portrait {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #c5a059;
+    margin: 20px auto 10px auto;
+    overflow: hidden;
+}
+
+.horse-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.basic-info {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.basic-info h3 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.toggle-stats-btn {
+    background: transparent;
+    color: #c5a059;
+    border: 1px solid #c5a059;
+    padding: 5px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.toggle-stats-btn:hover {
+    background: #c5a059;
+    color: #1a1a1a;
+}
+
+/* Collapsible Area */
+.stats-collapsible {
+    max-height: 0; /* Hidden by default */
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    background: #222;
+}
+
+/* This class will be added by JavaScript */
+.stats-collapsible.open {
+    max-height: 400px; /* Allows the box to expand */
+}
+
+.stats-padding {
+    padding: 20px;
+}
+.stat-label-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px; /* Space between text and bar */
+    color: #ffffff; /* Forced white for visibility */
+}
+.stat-name {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+}
+.stat-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 6px;
+}
+
+.stat-number {
+    color: #ffd700; /* Bright Gold */
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+}
+.number-wrapper {
+    font-size: 0.8rem;
+}
+.current-val {
+    color: #ffe47a; /* Bright Gold text */
+    font-weight: bold;
+    font-size: 1rem;
+}
+.max-val {
+    color: #666;
+    margin-left: 2px;
+}
+.gold-gradient {
+    background: linear-gradient(
+        90deg, 
+        #8a6d3b 0%,   /* Dark Bronze/Gold */
+        #c5a059 25%,  /* Classic Gold */
+        #ffe47a 50%,  /* Bright Shimmer */
+        #c5a059 75%,  /* Classic Gold */
+        #8a6d3b 100%  /* Dark Bronze/Gold */
+    );
+    background-size: 200% auto; /* Allows for a shimmer effect */
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.3), 
+                0 0 10px rgba(197, 160, 89, 0.2);
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.stat-bar {
+    width: 100%;
+    height: 8px; /* Slightly thicker to show off the gradient */
+    background: #111; /* Deeper black for higher contrast */
+    border-radius: 4px;
+    margin-bottom: 18px;
+    border: 1px solid #333;
+}
+.bar-fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #8a6d3b, #c5a059, #ffe47a, #c5a059);
+    background-size: 200% auto;
+    transition: width 1.5s cubic-bezier(0.1, 0.5, 0.2, 1);
+}
+.stat-bar-bg {
+    width: 100%;
+    height: 10px; /* Uniform thickness for all bars */
+    background: #000;
+    border-radius: 5px;
+    border: 1px solid #333;
+    overflow: hidden;
+    position: relative;
+}
+.fill {
+    height: 100%;
+    background: #c5a059;
+    border-radius: 3px;
+}
+
+.extra-details {
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    color: #aaa;
+    font-size: 0.8rem;
+    text-align: left;
+}
+
+/* Previous styles remain the same, add/update these specific parts: */
+
+.owner-name {
+    color: #888;
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-bottom: 12px;
+}
+
+.owner-name span {
+    color: #c5a059; /* Highlights the owner in gold */
+    font-weight: 500;
+}
+
+/* Collapsible Area Update */
+.stats-collapsible {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Smoother expansion */
+    background: #222;
+}
+
+/* Increase max-height to accommodate more rows */
+.stats-collapsible.open {
+    max-height: 600px; 
+}
+
+
+.gold-gradient {
+    animation: shimmer 3s linear infinite;
+}
+/* Each Stat Row holds the label and the bar */
+.stat-row {
+    margin-bottom: 25px; /* UNIFORM distance between different stats (e.g. Speed to Stamina) */
+    width: 100%;
+}
+
+/* Header Group: Name on left, Number on right */
+.stat-header-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Aligns text to the bottom of the line */
+    margin-bottom: 10px;    /* UNIFORM distance between Label and Bar */
+    padding: 0 2px;
+}
+
+.stat-name {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+/* Value Group (Number / 1200) */
+.stat-values {
+    display: flex;
+    align-items: baseline;
+    gap: 4px; /* Space between the current number and the '/ 1200' */
+}
+
+/* The Bar Container */
+
+
+/* Fill Logic */
+
+@keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
