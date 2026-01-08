@@ -18,7 +18,7 @@
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#schedule">Races</a></li>
-                <li><a href="YOUR_GOOGLE_FORM_URL_HERE" target="_blank" class="btn-nav">Join Now</a></li>
+                <li><a href="https://forms.gle/5JqwFZbtCdUdz9ta8" target="_blank" class="btn-nav">Join Now</a></li>
             </ul>
         </nav>
     </header>
@@ -188,31 +188,54 @@
 
     <script>
         function filterSelection(category) {
-            const items = document.getElementsByClassName('filter-item');
-            const buttons = document.getElementsByClassName('filter-btn');
+            const horses = document.querySelectorAll('.horse-card-collapsible');
+            const groups = document.querySelectorAll('.trainer-group');
+            const buttons = document.querySelectorAll('.filter-btn');
 
-            // Update active button state
-            for (let btn of buttons) {
+            // 1. Handle Button Highlights
+            buttons.forEach(btn => {
                 btn.classList.remove('active');
-                if (btn.innerText.toLowerCase().includes(category)) {
-                    btn.classList.add('active');
-                } else if (category === 'all' && btn.innerText.includes('All')) {
-                    btn.classList.add('active');
-                }
-            }
+                if (btn.getAttribute('onclick').includes(`'${category}'`)) btn.classList.add('active');
+            });
 
-            // Filter cards
-            for (let item of items) {
+            // 2. Filter Logic
+            groups.forEach(group => {
+                const preview = group.querySelector('.trainer-roster-preview');
+                
                 if (category === 'all') {
-                    item.classList.remove('hide');
+                    group.classList.remove('hide');
+                    group.classList.remove('active'); 
+                    
+                    // Show all horses
+                    group.querySelectorAll('.horse-card-collapsible').forEach(h => h.classList.remove('hide'));
+                    
+                    // RESET PREVIEW: Show all names
+                    const allNames = Array.from(group.querySelectorAll('h3')).map(h3 => h3.innerText).join(' • ');
+                    preview.innerHTML = allNames;
                 } else {
-                    if (item.classList.contains(category)) {
-                        item.classList.remove('hide');
+                    if (group.classList.contains(category)) {
+                        group.classList.remove('hide');
+                        group.classList.remove('active'); 
+
+                        // Filter individual horses
+                        const visibleNames = [];
+                        group.querySelectorAll('.horse-card-collapsible').forEach(h => {
+                            if (h.classList.contains(category)) {
+                                h.classList.remove('hide');
+                                // Collect name for preview
+                                visibleNames.push(h.querySelector('h3').innerText);
+                            } else {
+                                h.classList.add('hide');
+                            }
+                        });
+
+                        // UPDATE PREVIEW: Show only matching horse names
+                        preview.innerHTML = visibleNames.join(' • ');
                     } else {
-                        item.classList.add('hide');
+                        group.classList.add('hide');
                     }
                 }
-            }
+            });
         }
         function filterSchedule(category) {
             const rows = document.querySelectorAll('.race-row');
@@ -378,12 +401,17 @@
                 }, {});
 
                 // Build the HTML for each Trainer Group
+                // Inside your loadStableFromSheet loop...
                 for (const trainer in trainerGroups) {
-                    const category = trainerGroups[trainer][0].category.toLowerCase();
+                    // Collect all unique categories in this group to tag the parent
+                    const groupCategories = [...new Set(trainerGroups[trainer].map(h => 
+                        h.category ? h.category.toLowerCase().trim() : 'all'
+                    ))].join(' ');
+
                     const horseNames = trainerGroups[trainer].map(h => h.horseName).join(' • ');
 
                     let groupHTML = `
-                        <div class="trainer-group filter-item ${category}">
+                        <div class="trainer-group filter-item ${groupCategories}"> 
                             <div class="trainer-header" onclick="toggleTrainerGroup(this)">
                                 <div class="trainer-info">
                                     <span class="trainer-tag">Official Trainer</span>
@@ -394,7 +422,10 @@
                             </div>
                             <div class="trainer-roster-content">
                                 <div class="horse-grid">
-                                    ${trainerGroups[trainer].map(h => createHorseCard(h)).join('')}
+                                    ${trainerGroups[trainer].map(h => {
+                                        const cat = h.category ? h.category.toLowerCase().trim() : 'all';
+                                        return createHorseCard(h, cat); 
+                                    }).join('')}
                                 </div>
                             </div>
                         </div>`;
@@ -408,26 +439,36 @@
         }
 
         // Function to generate the individual card HTML
-        function createHorseCard(h) {
+        function createHorseCard(h, cat) {
+            // Fallbacks for missing data
+            const img = h.imageUrl || 'assets/default_horse.png';
+            const name = h.horseName || 'Unnamed Horse';
+            const trainer = h.trainer || 'Unknown Trainer';
+            const strategy = h.strategy || 'Balanced';
+            const vote = h.fanVote || '0';
+
+            // IMPORTANT: Only ONE outer div here
             return `
-            <div class="horse-card-collapsible">
+            <div class="horse-card-collapsible filter-item ${cat}">
                 <div class="card-content">
-                    <div class="horse-portrait"><img src="${h.imageUrl}" alt="${h.horseName}"></div>
+                    <div class="horse-portrait">
+                        <img src="${img}" alt="${name}" onerror="this.src='assets/default_horse.png';">
+                    </div>
                     <div class="basic-info">
-                        <h3>${h.horseName}</h3>
-                        <p class="owner-name">Trained by: <span>${h.trainer}</span></p>
+                        <h3>${name}</h3>
+                        <p class="owner-name">Trained by: <span>${trainer}</span></p>
                         <button class="toggle-stats-btn" onclick="toggleStats(this)">Show Stats</button>
                     </div>
                     <div class="stats-collapsible">
                         <div class="stats-padding">
-                            ${renderStatRow('Speed', h.speed)}
-                            ${renderStatRow('Stamina', h.stamina)}
-                            ${renderStatRow('Power', h.power)}
-                            ${renderStatRow('Gut', h.gut)}
-                            ${renderStatRow('Wit', h.wit)}
+                            ${renderStatRow('Speed', h.speed || 0)}
+                            ${renderStatRow('Stamina', h.stamina || 0)}
+                            ${renderStatRow('Power', h.power || 0)}
+                            ${renderStatRow('Gut', h.gut || 0)}
+                            ${renderStatRow('Wit', h.wit || 0)}
                             <div class="extra-details">
-                                <p><strong>Strategy:</strong> ${h.strategy}</p>
-                                <p><strong>Fan Vote:</strong> ${h.fanVote}</p>
+                                <p><strong>Strategy:</strong> ${strategy}</p>
+                                <p><strong>Fan Vote:</strong> ${vote}</p>
                             </div>
                         </div>
                     </div>
