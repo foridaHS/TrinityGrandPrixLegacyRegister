@@ -206,11 +206,7 @@ footer { background: #1a1a1a; color: #666; text-align: center; padding: 40px; fo
 }
 
 /* Grid Layout */
-.horse-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
+
 
 /* Horse Card Styles */
 .horse-card {
@@ -774,8 +770,8 @@ footer { background: #1a1a1a; color: #666; text-align: center; padding: 40px; fo
 .horse-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 20px 0;
+    gap: 20px;
+    width: 100%;
 }
 
 /* The Main Card Container */
@@ -1190,6 +1186,7 @@ footer { background: #1a1a1a; color: #666; text-align: center; padding: 40px; fo
 
 /* The name list visible when collapsed */
 .trainer-roster-preview {
+    transition: all 0.3s ease;
     color: #888;
     font-size: 0.9rem;
     font-style: italic;
@@ -1231,4 +1228,9 @@ footer { background: #1a1a1a; color: #666; text-align: center; padding: 40px; fo
 @keyframes shimmer {
     0% { background-position: 0% 50%; }
     100% { background-position: 200% 50%; }
+}
+
+
+.hide {
+    display: none !important;
 }
