@@ -387,98 +387,116 @@
         const SHEETY_API_URL = 'https://api.sheety.co/4b7d2f10221a5c970b5a271824da927d/lavitarContenderList/sheet1';
 
         async function loadStableFromSheet() {
-            try {
-                const response = await fetch(SHEETY_API_URL);
-                const data = await response.json();
-                
-                // Sheety usually wraps data in an object named after your sheet (e.g., data.sheet1)
-                const horses = data.sheet1; 
-                
-                const container = document.getElementById('dynamic-horse-grid');
-                container.innerHTML = ''; // Clear the "Loading" message
+    try {
+        const response = await fetch(SHEETY_API_URL);
+        const data = await response.json();
+        
+        // Use the correct wrapper (usually sheet1 or contender)
+        const horses = data.sheet1; 
+        
+        const container = document.getElementById('dynamic-horse-grid');
+        container.innerHTML = ''; 
 
-                // Grouping by Trainer using a simple reduce function
-                const trainerGroups = horses.reduce((groups, horse) => {
-                    const trainer = horse.trainer || 'Independent';
-                    if (!groups[trainer]) groups[trainer] = [];
-                    groups[trainer].push(horse);
-                    return groups;
-                }, {});
+        // Grouping logic
+        const trainerGroups = horses.reduce((groups, horse) => {
+            const trainer = horse.trainer || 'Independent';
+            if (!groups[trainer]) groups[trainer] = [];
+            groups[trainer].push(horse);
+            return groups;
+        }, {});
 
-                // Build the HTML for each Trainer Group
-                // Inside your loadStableFromSheet loop...
-                for (const trainer in trainerGroups) {
-                    // Collect all unique categories in this group to tag the parent
-                    const groupCategories = [...new Set(trainerGroups[trainer].map(h => 
-                        h.category ? h.category.toLowerCase().trim() : 'all'
-                    ))].join(' ');
+        for (const trainer in trainerGroups) {
+            const groupCategories = [...new Set(trainerGroups[trainer].map(h => 
+                h.category ? h.category.toLowerCase().trim() : 'all'
+            ))].join(' ');
 
-                    const horseNames = trainerGroups[trainer].map(h => h.horseName).join(' • ');
+            // FIX: Changed h.horseName to h.horsename (lowercase)
+            const horseNamesList = trainerGroups[trainer].map(h => h.horsename).join(' • ');
 
-                    let groupHTML = `
-                        <div class="trainer-group filter-item ${groupCategories}"> 
-                            <div class="trainer-header" onclick="toggleTrainerGroup(this)">
-                                <div class="trainer-info">
-                                    <span class="trainer-tag">Official Trainer</span>
-                                    <h2 class="trainer-name">${trainer}</h2>
-                                </div>
-                                <div class="trainer-roster-preview">${horseNames}</div>
-                                <div class="expand-icon">▼</div>
-                            </div>
-                            <div class="trainer-roster-content">
-                                <div class="horse-grid">
-                                    ${trainerGroups[trainer].map(h => {
-                                        const cat = h.category ? h.category.toLowerCase().trim() : 'all';
-                                        return createHorseCard(h, cat); 
-                                    }).join('')}
-                                </div>
-                            </div>
-                        </div>`;
-                    
-                    container.innerHTML += groupHTML;
-                }
-            } catch (error) {
-                console.error('Error loading Sheety data:', error);
-                document.getElementById('dynamic-horse-grid').innerHTML = "<p>Failed to load stable data.</p>";
-            }
-        }
-
-        // Function to generate the individual card HTML
-        function createHorseCard(h, cat) {
-            // Fallbacks for missing data
-            const img = h.imageUrl || 'assets/default_horse.png';
-            const name = h.horseName || 'Unnamed Horse';
-            const trainer = h.trainer || 'Unknown Trainer';
-            const strategy = h.strategy || 'Balanced';
-            const vote = h.fanVote || '0';
-
-            // IMPORTANT: Only ONE outer div here
-            return `
-            <div class="horse-card-collapsible filter-item ${cat}">
-                <div class="card-content">
-                    <div class="horse-portrait">
-                        <img src="${img}" alt="${name}" onerror="this.src='assets/default_horse.png';">
+            let groupHTML = `
+                <div class="trainer-group filter-item ${groupCategories}"> 
+                    <div class="trainer-header" onclick="toggleTrainerGroup(this)">
+                        <div class="trainer-info">
+                            <span class="trainer-tag">Official Trainer</span>
+                            <h2 class="trainer-name">${trainer}</h2>
+                        </div>
+                        <div class="trainer-roster-preview">${horseNamesList}</div>
+                        <div class="expand-icon">▼</div>
                     </div>
-                    <div class="basic-info">
-                        <h3>${name}</h3>
-                        <p class="owner-name">Trained by: <span>${trainer}</span></p>
-                        <button class="toggle-stats-btn" onclick="toggleStats(this)">Show Stats</button>
-                    </div>
-                    <div class="stats-collapsible">
-                        <div class="stats-padding">
-                            ${renderStatRow('Speed', h.speed || 0)}
-                            ${renderStatRow('Stamina', h.stamina || 0)}
-                            ${renderStatRow('Power', h.power || 0)}
-                            ${renderStatRow('Gut', h.gut || 0)}
-                            ${renderStatRow('Wit', h.wit || 0)}
-                            <div class="extra-details">
-                                <p><strong>Strategy:</strong> ${strategy}</p>
-                                <p><strong>Fan Vote:</strong> ${vote}</p>
-                            </div>
+                    <div class="trainer-roster-content">
+                        <div class="horse-grid">
+                            ${trainerGroups[trainer].map(h => {
+                                const cat = h.category ? h.category.toLowerCase().trim() : 'all';
+                                // This calls your card creation function
+                                return createHorseCard(h, cat); 
+                            }).join('')}
                         </div>
                     </div>
+                </div>`;
+            
+            container.innerHTML += groupHTML;
+        }
+    } catch (error) {
+        console.error('Error loading Sheety data:', error);
+        document.getElementById('dynamic-horse-grid').innerHTML = "<p>Failed to load stable data.</p>";
+    }
+}
+
+        // Function to generate the individual card HTML
+        function createHorseCard(horse, category) {
+            // 1. Data Mapping (Matches your lowercase Sheety keys)
+            const name = horse.horsename || "Unknown Uma";
+            const img = horse.imageurl || "assets/default_icon.png";
+            const strat = horse.strategy || "Runner";
+            const fans = horse.fanvote || 0;
+            
+            // Stats
+            const spd = parseInt(horse.speed) || 0;
+            const stm = parseInt(horse.stamina) || 0;
+            const pwr = parseInt(horse.power) || 0;
+            const gut = parseInt(horse.gut) || 0;
+            const wit = parseInt(horse.wit) || 0;
+
+            // 2. Helper function to create a stat bar
+            const createBar = (label, value) => {
+                const percentage = Math.min((value / 1200) * 100, 100);
+                return `
+                    <div class="stat-bar-container">
+                        <div class="stat-label">
+                            <span class="label-text">${label}</span>
+                            <span class="label-value">${value}</span>
+                        </div>
+                        <div class="bar-bg">
+                            <div class="bar-fill" style="width: ${percentage}%"></div>
+                        </div>
+                    </div>
+                `;
+            };
+
+            // 3. The Final Card HTML
+            return `
+                <div class="horse-card ${category}">
+                    <div class="horse-header">
+                        <img src="${img}" alt="${name}" class="horse-icon">
+                        <div class="horse-main-info">
+                            <h3>${name}</h3>
+                            <div class="strategy-tag">${strat}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-section">
+                        ${createBar('SPD', spd)}
+                        ${createBar('STM', stm)}
+                        ${createBar('PWR', pwr)}
+                        ${createBar('GUT', gut)}
+                        ${createBar('WIT', wit)}
+                    </div>
+
+                    <div class="horse-footer">
+                        <span class="fan-count">🧡 ${fans.toLocaleString()} Fans</span>
+                    </div>
                 </div>
-            </div>`;
+            `;
         }
 
         function renderStatRow(label, value) {
