@@ -1287,3 +1287,475 @@ footer { background: #1a1a1a; color: #666; text-align: center; padding: 40px; fo
         margin: 0;
     }
 }
+
+:root {
+    --lavitar-gold: #c5a059;
+    --lavitar-white: #fdfdfd;
+    --lavitar-dark: #1a1a1a;
+    --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f7ef8a 50%, #c5a059 100%);
+}
+
+.form-page {
+    background-color: #f4f4f2; /* Light creamy gray */
+    font-family: 'Inter', sans-serif;
+    color: var(--lavitar-dark);
+    margin: 0;
+}
+
+/* Header */
+.form-header {
+    background: rgb(51, 49, 49);
+    padding: 15px 5%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-bottom: 2px solid var(--lavitar-gold);
+}
+
+/* Container & Card */
+.registration-container {
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.form-card {
+    background: white;
+    max-width: 1000px;
+    width: 100%;
+    border-radius: 4px; /* Sharp, high-end look */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    padding: 50px;
+    border: 1px solid rgba(197, 160, 89, 0.3);
+}
+
+.form-hero h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.form-hero p {
+    text-align: center;
+    color: #888;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.gold-divider {
+    height: 3px;
+    width: 80px;
+    background: var(--gold-gradient);
+    margin: 20px auto 40px;
+}
+
+/* Inputs & Selects */
+.input-group label {
+    display: block;
+    font-weight: bold;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: var(--lavitar-gold);
+}
+
+#trainerName {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 0;
+    font-size: 1rem;
+    margin-bottom: 40px;
+    transition: border-color 0.3s;
+}
+
+#trainerName:focus {
+    border-color: var(--lavitar-gold);
+    outline: none;
+}
+
+/* Grid Layout */
+.roster-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.cat-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.cat-header h3 {
+    font-size: 1rem;
+    margin: 0;
+}
+
+/* Submit Button */
+.btn-gold-submit {
+    width: 100%;
+    background: var(--gold-gradient);
+    color: black;
+    border: none;
+    padding: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+}
+
+.btn-gold-submit:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 850px) {
+    .roster-grid { grid-template-columns: 1fr; }
+    .form-card { padding: 25px; }
+}
+
+/* Fix Choices.js to look like the rest of the form */
+.choices__inner {
+    background: #fff !important;
+    border: 1px solid #ddd !important;
+    border-radius: 0 !important;
+    min-height: 50px !important;
+    display: flex;
+    align-items: center;
+}
+
+.choices.is-focused .choices__inner {
+    border-color: var(--lavitar-gold) !important;
+}
+
+.choices__list--dropdown {
+    background: #fff !important;
+    border: 1px solid var(--lavitar-gold) !important;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.choices__item--selectable.is-highlighted {
+    background-color: var(--lavitar-gold) !important;
+    color: white !important;
+}
+
+/* Back to Roster Button (Discord Style) */
+.btn-gold-nav {
+    background: linear-gradient(135deg, #c5a059 0%, #f7ef8a 50%, #8e6d28 100%);
+    color: #000 !important; /* Black text looks more 'Elite' on gold */
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+}
+
+.btn-gold-nav i {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effects */
+.btn-gold-nav:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(197, 160, 89, 0.5);
+    filter: brightness(1.05);
+}
+
+.btn-gold-nav:hover i {
+    transform: translateX(-5px); /* Arrow slides left on hover */
+}
+
+/* Match the navigation layout */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 600px) {
+    .btn-gold-nav {
+        padding: 8px 12px;
+        font-size: 0.75rem;
+    }
+    .btn-gold-nav i {
+        font-size: 0.9rem;
+    }
+}
+
+.horse-slot {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 2px; /* Sharp corners for premium look */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.stats-container {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #eee;
+}
+
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.stat-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-field label {
+    font-size: 0.65rem;
+    font-weight: bold;
+    color: var(--lavitar-gold);
+    margin-bottom: 4px;
+}
+
+.stat-field input {
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 8px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    background: #fafafa;
+}
+
+.stat-field input:focus {
+    border-color: var(--lavitar-gold);
+    background: #fff;
+    outline: none;
+}
+
+.strategy-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    font-size: 0.85rem;
+    color: #555;
+    background: #fff;
+}
+
+
+
+/* Ensure the category block fills its grid space */
+.category-block {
+    background: #fff;
+    border: 1px solid rgba(197, 160, 89, 0.2);
+    padding: 20px;
+    border-radius: 4px;
+    height: fit-content;
+}
+
+/* Mobile Specific Fixes */
+@media (max-width: 1024px) {
+.roster-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+    
+    .registration-container {
+        padding: 20px 10px;
+    }
+
+    .form-card {
+        padding: 20px; /* Reduces padding so it fits on phone screens */
+    }
+}
+
+.extra-inputs-row {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.input-field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field label {
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: var(--lavitar-gold);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.fan-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-size: 0.9rem;
+}
+
+.fan-input:focus {
+    border-color: var(--lavitar-gold);
+    outline: none;
+}
+
+
+
+.disclaimer {
+    color: #666;
+    font-size: 0.85rem;
+    margin-bottom: 25px;
+    max-width: 600px; /* Keeps text from getting too wide on PC */
+    line-height: 1.5;
+}
+
+.btn-gold-submit {
+    /* Set a max-width so the button doesn't stretch across the whole screen on PC */
+    width: 100%;
+    max-width: 400px; 
+    
+    background: var(--gold-gradient);
+    color: #000;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-gold-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(197, 160, 89, 0.4);
+}
+
+/* This targets the form that holds everything */
+#umaRegistrationForm {
+    display: flex;
+    flex-direction: column; /* Forces children to stack vertically */
+    align-items: center;    /* Centers children horizontally */
+    width: 100%;
+}
+
+/* Ensure the grid doesn't try to float or behave weirdly */
+.roster-grid {
+    display: grid;
+    /* Forces exactly 2 columns on PC */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 30px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+.category-block:nth-child(3) {
+    grid-column: 1 / span 2; /* Forces it to take up the whole width of the new row */
+    max-width: 500px;        /* Keeps it from getting too wide/stretched */
+    margin: 0 auto;         /* Centers it horizontally */
+    width: 100%;
+}
+/* The footer will now always be forced to a new line below the grid */
+.form-footer {
+    grid-column: 1 / -1; /* Spans across both columns of the grid */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+@media (max-width: 850px) {
+    .roster-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .category-block:nth-child(3) {
+        grid-column: auto;
+        max-width: 100%;
+    }
+}
+.fanvote-text {
+    margin-top: 20px;
+}
+
+/* Stat Bar Styling */
+.stat-bar-container {
+    margin-bottom: 12px;
+}
+
+.stat-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #444;
+}
+
+.label-text {
+    letter-spacing: 1px;
+}
+
+.label-value {
+    color: var(--lavitar-gold);
+}
+
+.bar-bg {
+    height: 6px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #c5a059, #f7ef8a);
+    border-radius: 10px;
+    transition: width 1s ease-in-out; /* Makes the bars 'grow' when loaded */
+}
+
+/* Strategy Tag */
+.strategy-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    background: #1a1a1a;
+    color: #c5a059;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    margin-top: 4px;
+}
+
+/* Fan Count */
+.horse-footer {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    text-align: right;
+}
+
+.fan-count {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #888;
+}
