@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horse Entry - Lavitar Racing Club</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+</head>
+<body class="form-page">
+    <header class="form-header">
+        <nav>
+            <div class="logo">LAVITAR<span>RACING</span></div>
+            <a href="index.html" class="back-link btn-gold-nav">← Back to Roster</a>
+        </nav>
+    </header>
+
+    <main class="registration-container">
+        <div class="form-card">
+            <div class="form-hero">
+                <h1>Trinity Grand Prix</h1>
+                <p>Official Roster Registration</p>
+                <div class="gold-divider"></div>
+            </div>
+
+            <form id="umaRegistrationForm">
+                <div class="input-group">
+                    <label for="trainerName">Trainer Identification</label>
+                    <input type="text" id="trainerName" required placeholder="Enter Official Trainer Name">
+                </div>
+
+                <div class="roster-grid">
+                    <div class="cat-column">
+                        <div class="cat-header miles">
+                            <span class="icon">O</span>
+                            <h3>Miles Division</h3>
+                        </div>
+                        <div class="select-wrapper">
+                            <div class="horse-slot">
+                                <div class="horse-selector">
+                                    <select class="uma-select" id="mile_1" required></select>
+                                </div>
+                                <div class="stats-container">
+                                    <div class="stats-row">
+                                        <div class="stat-field"><label>SPD</label><input type="number" id="mile_1_spd" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>STM</label><input type="number" id="mile_1_stm" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>PWR</label><input type="number" id="mile_1_pwr" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>GUT</label><input type="number" id="mile_1_gut" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>WIT</label><input type="number" id="mile_1_wit" placeholder="0" min="0" max="1200"></div>
+                                    </div>
+                                    <select class="strategy-select" id="mile_1_strat">
+                                        <option value="Front Runner">Front Runner</option>
+                                        <option value="Pace Chaser">Pace Chaser</option>
+                                        <option value="Late Surger">Late Surger</option>
+                                        <option value="End Closer">End Closer</option>
+                                    </select>
+                                </div>
+                            <div class="input-field">
+                                <label class="fanvote-text">Fan Vote (Popularity)</label>
+                                <input type="number" id="mile_1_fans" class="fan-input" placeholder="e.g. 50000" min="0">
+                            </div>
+                            </div>
+
+                            <div class="horse-slot">
+                                <div class="horse-selector">
+                                    <select class="uma-select" id="mile_2" required></select>
+                                </div>
+                                <div class="stats-container">
+                                    <div class="stats-row">
+                                        <div class="stat-field"><label>SPD</label><input type="number" id="mile_2_spd" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>STM</label><input type="number" id="mile_2_stm" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>PWR</label><input type="number" id="mile_2_pwr" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>GUT</label><input type="number" id="mile_2_gut" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>WIT</label><input type="number" id="mile_2_wit" placeholder="0" min="0" max="1200"></div>
+                                    </div>
+                                    <select class="strategy-select" id="mile_2_strat">
+                                        <option value="Front Runner">Front Runner</option>
+                                        <option value="Pace Chaser">Pace Chaser</option>
+                                        <option value="Late Surger">Late Surger</option>
+                                        <option value="End Closer">End Closer</option>
+                                    </select>
+                                </div>
+                            <div class="input-field">
+                                <label class="fanvote-text">Fan Vote (Popularity)</label>
+                                <input type="number" id="mile_2_fans" class="fan-input" placeholder="e.g. 50000" min="0">
+                            </div>
+                            </div>
+
+                            <div class="horse-slot">
+                                <div class="horse-selector">
+                                    <select class="uma-select" id="mile_3" required></select>
+                                </div>
+                                <div class="stats-container">
+                                    <div class="stats-row">
+                                        <div class="stat-field"><label>SPD</label><input type="number" id="mile_3_spd" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>STM</label><input type="number" id="mile_3_stm" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>PWR</label><input type="number" id="mile_3_pwr" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>GUT</label><input type="number" id="mile_3_gut" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>WIT</label><input type="number" id="mile_3_wit" placeholder="0" min="0" max="1200"></div>
+                                    </div>
+                                    <select class="strategy-select" id="mile_3_strat">
+                                        <option value="Front Runner">Front Runner</option>
+                                        <option value="Pace Chaser">Pace Chaser</option>
+                                        <option value="Late Surger">Late Surger</option>
+                                        <option value="End Closer">End Closer</option>
+                                    </select>
+                                </div>
+                            <div class="input-field">
+                                <label class="fanvote-text">Fan Vote (Popularity)</label>
+                                <input type="number" id="mile_3_fans" class="fan-input" placeholder="e.g. 50000" min="0">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cat-column">
+                        <div class="cat-header medium">
+                            <span class="icon">O</span>
+                            <h3>Medium Division</h3>
+                        </div>
+                        <div class="select-wrapper">
+                            <div class="horse-slot">
+                                <div class="horse-selector">
+                                    <select class="uma-select" id="medium_1" required></select>
+                                </div>
+                                <div class="stats-container">
+                                    <div class="stats-row">
+                                        <div class="stat-field"><label>SPD</label><input type="number" id="medium_1_spd" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>STM</label><input type="number" id="medium_1_stm" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>PWR</label><input type="number" id="medium_1_pwr" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>GUT</label><input type="number" id="medium_1_gut" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>WIT</label><input type="number" id="medium_1_wit" placeholder="0" min="0" max="1200"></div>
+                                    </div>
+                                    <select class="strategy-select" id="medium_1_strat">
+                                        <option value="Front Runner">Front Runner</option>
+                                        <option value="Pace Chaser">Pace Chaser</option>
+                                        <option value="Late Surger">Late Surger</option>
+                                        <option value="End Closer">End Closer</option>
+                                    </select>
+                                </div>
+                            <div class="input-field">
+                                <label class="fanvote-text">Fan Vote (Popularity)</label>
+                                <input type="number" id="medium_1_fans" class="fan-input" placeholder="e.g. 50000" min="0">
+                            </div>
+                            </div>
+
+                            <div class="horse-slot">
+                                <div class="horse-selector">
+                                    <select class="uma-select" id="medium_2" required></select>
+                                </div>
+                                <div class="stats-container">
+                                    <div class="stats-row">
+                                        <div class="stat-field"><label>SPD</label><input type="number" id="medium_2_spd" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>STM</label><input type="number" id="medium_2_stm" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>PWR</label><input type="number" id="medium_2_pwr" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>GUT</label><input type="number" id="medium_2_gut" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>WIT</label><input type="number" id="medium_2_wit" placeholder="0" min="0" max="1200"></div>
+                                    </div>
+                                    <select class="strategy-select" id="medium_2_strat">
+                                        <option value="Front Runner">Front Runner</option>
+                                        <option value="Pace Chaser">Pace Chaser</option>
+                                        <option value="Late Surger">Late Surger</option>
+                                        <option value="End Closer">End Closer</option>
+                                    </select>
+                                </div>
+                            <div class="input-field">
+                                <label class="fanvote-text">Fan Vote (Popularity)</label>
+                                <input type="number" id="medium_2_fans" class="fan-input" placeholder="e.g. 50000" min="0">
+                            </div>
+                            </div>
+
+                            <div class="horse-slot">
+                                <div class="horse-selector">
+                                    <select class="uma-select" id="medium_3" required></select>
+                                </div>
+                                <div class="stats-container">
+                                    <div class="stats-row">
+                                        <div class="stat-field"><label>SPD</label><input type="number" id="medium_3_spd" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>STM</label><input type="number" id="medium_3_stm" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>PWR</label><input type="number" id="medium_3_pwr" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>GUT</label><input type="number" id="medium_3_gut" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>WIT</label><input type="number" id="medium_3_wit" placeholder="0" min="0" max="1200"></div>
+                                    </div>
+                                    <select class="strategy-select" id="medium_3_strat">
+                                        <option value="Front Runner">Front Runner</option>
+                                        <option value="Pace Chaser">Pace Chaser</option>
+                                        <option value="Late Surger">Late Surger</option>
+                                        <option value="End Closer">End Closer</option>
+                                    </select>
+                                </div>
+                            <div class="input-field">
+                                <label class="fanvote-text">Fan Vote (Popularity)</label>
+                                <input type="number" id="medium_3_fans" class="fan-input" placeholder="e.g. 50000" min="0">
+                            </div>
+                            </div>
+
+                    <div class="cat-column">
+                        <div class="cat-header long">
+                            <span class="icon">O</span>
+                            <h3>Long Division</h3>
+                        </div>
+                        <div class="select-wrapper">
+                            <div class="horse-slot">
+                                <div class="horse-selector">
+                                    <select class="uma-select" id="long_1" required></select>
+                                </div>
+                                <div class="stats-container">
+                                    <div class="stats-row">
+                                        <div class="stat-field"><label>SPD</label><input type="number" id="long_1_spd" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>STM</label><input type="number" id="long_1_stm" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>PWR</label><input type="number" id="long_1_pwr" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>GUT</label><input type="number" id="long_1_gut" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>WIT</label><input type="number" id="long_1_wit" placeholder="0" min="0" max="1200"></div>
+                                    </div>
+                                    <select class="strategy-select" id="long_1_strat">
+                                        <option value="Front Runner">Front Runner</option>
+                                        <option value="Pace Chaser">Pace Chaser</option>
+                                        <option value="Late Surger">Late Surger</option>
+                                        <option value="End Closer">End Closer</option>
+                                    </select>
+                                </div>
+                            <div class="input-field">
+                                <label class="fanvote-text">Fan Vote (Popularity)</label>
+                                <input type="number" id="long_1_fans" class="fan-input" placeholder="e.g. 50000" min="0">
+                            </div>
+                            </div>
+
+                            <div class="horse-slot">
+                                <div class="horse-selector">
+                                    <select class="uma-select" id="long_2" required></select>
+                                </div>
+                                <div class="stats-container">
+                                    <div class="stats-row">
+                                        <div class="stat-field"><label>SPD</label><input type="number" id="long_2_spd" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>STM</label><input type="number" id="long_2_stm" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>PWR</label><input type="number" id="long_2_pwr" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>GUT</label><input type="number" id="long_2_gut" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>WIT</label><input type="number" id="long_2_wit" placeholder="0" min="0" max="1200"></div>
+                                    </div>
+                                    <select class="strategy-select" id="long_2_strat">
+                                        <option value="Front Runner">Front Runner</option>
+                                        <option value="Pace Chaser">Pace Chaser</option>
+                                        <option value="Late Surger">Late Surger</option>
+                                        <option value="End Closer">End Closer</option>
+                                    </select>
+                                </div>
+                            <div class="input-field">
+                                <label class="fanvote-text">Fan Vote (Popularity)</label>
+                                <input type="number" id="long_2_fans" class="fan-input" placeholder="e.g. 50000" min="0">
+                            </div>
+                            </div>
+
+                            <div class="horse-slot">
+                                <div class="horse-selector">
+                                    <select class="uma-select" id="long_3" required></select>
+                                </div>
+                                <div class="stats-container">
+                                    <div class="stats-row">
+                                        <div class="stat-field"><label>SPD</label><input type="number" id="long_3_spd" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>STM</label><input type="number" id="long_3_stm" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>PWR</label><input type="number" id="long_3_pwr" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>GUT</label><input type="number" id="long_3_gut" placeholder="0" min="0" max="1200"></div>
+                                        <div class="stat-field"><label>WIT</label><input type="number" id="long_3_wit" placeholder="0" min="0" max="1200"></div>
+                                    </div>
+                                    <select class="strategy-select" id="long_3_strat">
+                                        <option value="Front Runner">Front Runner</option>
+                                        <option value="Pace Chaser">Pace Chaser</option>
+                                        <option value="Late Surger">Late Surger</option>
+                                        <option value="End Closer">End Closer</option>
+                                    </select>
+                                </div>
+                            <div class="input-field">
+                                <label class="fanvote-text">Fan Vote (Popularity)</label>
+                                <input type="number" id="long_3_fans" class="fan-input" placeholder="e.g. 50000" min="0">
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="form-footer">
+                <p class="disclaimer">
+                    ⚠️ <strong>Note:</strong> Each Uma Musume can only be registered once. 
+                    Ensure all stats (0-1200) and Fan Votes are accurate before confirming.
+                </p>
+                
+                <button type="submit" class="btn-gold-submit">
+                    Confirm Roster Registration
+                </button>
+            </div>
+            </form>
+        </div>
+    </main>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script>
+
+let choiceInstances = []; 
+const umaRoster = ["Special Week", "Silence Suzuka", "Tokai Teio", "Maruzensky", "Fuji Kiseki", "Oguri Cap", "Gold Ship", "Vodka", "Daiwa Scarlet", "Grass Wonder", "El Condor Pasa", "Symboli Rudolf", "Air Groove", "Agnes Tachyon", "Manhattan Cafe", "Mihono Bourbon", "Rice Shower", "Agnes Digital", "Mejiro McQueen"];
+
+document.addEventListener('DOMContentLoaded', function() {
+    
+    function initForm() {
+        const selects = document.querySelectorAll('.uma-select');
+        
+        selects.forEach((select) => {
+            const instance = new Choices(select, {
+                searchEnabled: true,
+                placeholder: true,
+                placeholderValue: 'Select a Horse...',
+                itemSelectText: '',
+                shouldSort: false,
+                allowHTML: true
+            });
+            choiceInstances.push(instance);
+        });
+
+        refreshAllDropdowns();
+
+        document.getElementById('umaRegistrationForm').addEventListener('change', () => {
+            refreshAllDropdowns();
+        });
+    }
+
+    function refreshAllDropdowns() {
+        const allSelected = choiceInstances.map(inst => inst.getValue(true)).filter(val => val !== "");
+
+        choiceInstances.forEach(instance => {
+            const currentSelectedValue = instance.getValue(true);
+            const choicesList = umaRoster.map(name => {
+                const isTakenBySomeoneElse = allSelected.includes(name) && name !== currentSelectedValue;
+                return {
+                    value: name,
+                    label: name,
+                    selected: name === currentSelectedValue,
+                    disabled: isTakenBySomeoneElse
+                };
+            });
+            instance.setChoices(choicesList, 'value', 'label', true);
+        });
+    }
+
+    initForm();
+});
+    
+document.getElementById('umaRegistrationForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const trainer = document.getElementById('trainerName').value;
+    const horseIds = ['mile_1', 'mile_2', 'mile_3', 'medium_1', 'medium_2', 'medium_3', 'long_1', 'long_2', 'long_3'];
+    
+    // Validate all 9 are picked
+    const selectedNames = choiceInstances.map(inst => inst.getValue(true)).filter(v => v);
+    if (selectedNames.length < 9) {
+        alert("⚠️ Please select all 9 Uma Musume before registering.");
+        return;
+    }
+
+    alert("Registering your roster to Lavitar Racing Club...");
+
+    const uploadPromises = horseIds.map((id, index) => {
+        const horseName = choiceInstances[index].getValue(true);
+        let category = index < 3 ? "Miles" : (index < 6 ? "Medium" : "Long");
+
+        // --- FIX: Define the imageUrl variable here ---
+        const generatedImageUrl = `assets/icon_${horseName.toLowerCase().replace(/\s+/g, '_')}.png`;
+
+        const horseData = {
+            trainer: trainer,
+            horsename: horseName,        // lowercase to match Sheety
+            imageurl: generatedImageUrl, // using the variable we just defined
+            category: category,
+            speed: parseInt(document.getElementById(`${id}_spd`).value) || 0,
+            stamina: parseInt(document.getElementById(`${id}_stm`).value) || 0,
+            power: parseInt(document.getElementById(`${id}_pwr`).value) || 0,
+            gut: parseInt(document.getElementById(`${id}_gut`).value) || 0,
+            wit: parseInt(document.getElementById(`${id}_wit`).value) || 0,
+            strategy: document.getElementById(`${id}_strat`).value,
+            fanvote: parseInt(document.getElementById(`${id}_fans`).value) || 0
+        };
+
+        return fetch('https://api.sheety.co/4b7d2f10221a5c970b5a271824da927d/lavitarContenderList/sheet1', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ sheet1: horseData }) 
+        });
+    });
+
+    try {
+        await Promise.all(uploadPromises);
+        alert("✅ Success! All 9 horses are registered.");
+        window.location.href = "index.html";
+    } catch (err) {
+        console.error(err);
+        alert("❌ Error: Registration failed. Check console for details.");
+    }
+});
+
+    </script>
+
+</body>
+</html>
