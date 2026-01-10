@@ -1,0 +1,1 @@
+This fan-made club website has no relation to Cygames or Uma Musume Pretty Derby. I made this project purely for fun and to improve my skill. I do not want to gain any income or benefit from this. All art and assets belong to their original owner; I do not own any character assets or art appearing on this website.
